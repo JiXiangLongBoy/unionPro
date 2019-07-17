@@ -11,6 +11,9 @@ public class DemoController {
     public String testDemo(){
 
         System.out.println("帅帅的我又回来了！！");
+        System.out.println("~");
+        System.out.println("~");
+        System.out.println("~");
         return "demo";
     }
 
