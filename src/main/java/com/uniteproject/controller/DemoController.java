@@ -9,6 +9,7 @@ public class DemoController {
 
     @RequestMapping("/demo")
     public String testDemo(){
+        System.out.println("!!!");
         return "demo";
     }
 
