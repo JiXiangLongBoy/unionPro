@@ -9,6 +9,8 @@ public class DemoController {
 
     @RequestMapping("/demo")
     public String testDemo(){
+
+        System.out.println("帅帅的我又回来了！！");
         return "demo";
     }
 
