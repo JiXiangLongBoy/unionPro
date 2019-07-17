@@ -8,7 +8,9 @@ public class DemoController {
 
 
     @RequestMapping("/demo")
-    public String testDemo(){
+    public String testDemo() {
+        System.out.println("~");
+        System.out.println("~");
         System.out.println("~");
         return "demo";
     }
