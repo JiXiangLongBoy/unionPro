@@ -1,10 +1,44 @@
 package com.uniteproject.pojo;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+import io.swagger.annotations.ApiModelProperty;
+
 public class User {
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    @ApiModelProperty("用户对应的唯一id")
+    private int id;
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    @ApiModelProperty("登录是否成功的状态码")
+    private int status;
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    @ApiModelProperty("登录用户名")
     private String username;
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    @ApiModelProperty("登录密码")
     private String password;
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    @ApiModelProperty("用户的邮箱")
     private String email;
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    @ApiModelProperty("用户的手机号")
     private String phone;
+
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
+    }
 
     public String getUsername() {
         return username;
@@ -41,10 +75,12 @@ public class User {
     @Override
     public String toString() {
         return "User{" +
-                "username='" + username + '\'' +
+                "id=" + id +
+                ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
                 ", email='" + email + '\'' +
                 ", phone='" + phone + '\'' +
+                ", status=" + status +
                 '}';
     }
 }
