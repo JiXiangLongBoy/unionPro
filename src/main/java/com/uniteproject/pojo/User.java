@@ -5,9 +5,6 @@ import io.swagger.annotations.ApiModelProperty;
 
 public class User {
     @JsonInclude(JsonInclude.Include.NON_NULL)
-    @ApiModelProperty("用户对应的唯一id")
-    private int id;
-    @JsonInclude(JsonInclude.Include.NON_NULL)
     @ApiModelProperty("登录用户名")
     private String username;
     @JsonInclude(JsonInclude.Include.NON_NULL)
@@ -21,13 +18,7 @@ public class User {
     private String phone;
 
 
-    public int getId() {
-        return id;
-    }
 
-    public void setId(int id) {
-        this.id = id;
-    }
 
 
     public String getUsername() {
@@ -65,7 +56,6 @@ public class User {
     @Override
     public String toString() {
         return "User{" +
-                "id=" + id +
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
                 ", email='" + email + '\'' +
