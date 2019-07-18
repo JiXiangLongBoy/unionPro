@@ -8,9 +8,6 @@ public class User {
     @ApiModelProperty("用户对应的唯一id")
     private int id;
     @JsonInclude(JsonInclude.Include.NON_NULL)
-    @ApiModelProperty("登录是否成功的状态码")
-    private int status;
-    @JsonInclude(JsonInclude.Include.NON_NULL)
     @ApiModelProperty("登录用户名")
     private String username;
     @JsonInclude(JsonInclude.Include.NON_NULL)
@@ -32,13 +29,6 @@ public class User {
         this.id = id;
     }
 
-    public int getStatus() {
-        return status;
-    }
-
-    public void setStatus(int status) {
-        this.status = status;
-    }
 
     public String getUsername() {
         return username;
@@ -80,7 +70,6 @@ public class User {
                 ", password='" + password + '\'' +
                 ", email='" + email + '\'' +
                 ", phone='" + phone + '\'' +
-                ", status=" + status +
                 '}';
     }
 }

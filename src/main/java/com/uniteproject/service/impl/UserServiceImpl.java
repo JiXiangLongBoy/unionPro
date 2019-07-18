@@ -1,6 +1,7 @@
 package com.uniteproject.service.impl;
 
 import com.uniteproject.mapper.UserMapper;
+import com.uniteproject.pojo.LoginResult;
 import com.uniteproject.pojo.User;
 import com.uniteproject.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,18 +15,15 @@ public class UserServiceImpl implements UserService {
     UserMapper userMapper;
 
     @Override
-    public User isLogin(User user) {
+    public LoginResult isLogin(User user) {
 
-        User isLogin = new User();
         int count = userMapper.login(user);
 
         if (count == 1) {
             int id = userMapper.isLogin(user);
-            isLogin.setId(id);
-            isLogin.setStatus(1);
+            return new LoginResult(1,id,"用户名验证登录成功");
         } else {
-            isLogin.setStatus(0);
+            return new LoginResult(0,0,"用户名或密码错误，登陆失败");
         }
-        return isLogin;
     }
 }
