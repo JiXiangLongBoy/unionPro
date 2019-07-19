@@ -25,7 +25,6 @@ public class UserController {
     }
     @ApiOperation("查询注册时邮箱是否存在，存在返回fail,不存在返回sucess")
     @RequestMapping("/validateEmail")
-    @ResponseBody
     public String validateEmail(String email){
 
         boolean isExist = userService.validateEmail(email);
@@ -34,7 +33,6 @@ public class UserController {
     }
     @ApiOperation("查询注册时账户名是否存在，存在返回fail,不存在返回sucess")
     @RequestMapping("/validateUserName")
-    @ResponseBody
     public String validateUaerName(String userName){
 
         boolean isExist = userService.validateUserName(userName);
@@ -44,7 +42,6 @@ public class UserController {
 
     @ApiOperation("注册功能，像数据库插入注册信息")
     @RequestMapping("/insertUser")
-    @ResponseBody
     public String insertUser(User user){
         int result = userService.insertUser(user);
         System.out.println("插入数据后是否可以获取一个值："+result);
