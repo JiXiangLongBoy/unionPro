@@ -26,4 +26,25 @@ public class UserServiceImpl implements UserService {
             return new LoginResult(0,0,"用户名或密码错误，登陆失败");
         }
     }
+
+    @Override
+    public boolean validateEmail(String email) {
+        int count = userMapper.selectUserByEmail(email);
+        return count > 0 ? true :false ;
+    }
+
+    @Override
+    public boolean validateUserName(String userName) {
+        int count = userMapper.selectUserByUserName(userName);
+        return count > 0 ? true :false ;
+    }
+
+    @Override
+    public int insertUser(User user) {
+
+
+            return userMapper.insertUser(user);
+
+
+    }
 }
