@@ -3,9 +3,12 @@ package com.uniteproject.service.impl;
 import com.uniteproject.mapper.UserMapper;
 import com.uniteproject.pojo.LoginResult;
 import com.uniteproject.pojo.User;
+import com.uniteproject.pojo.UserImage;
 import com.uniteproject.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -28,6 +31,21 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public List<User> headList() {
+        int result = userMapper.getHeadCount();
+        int count = 0;
+        if(result>12){
+            result =result-12;
+             count = (int)(Math.random()*(result)+1);
+        }else{
+             count = (int)(Math.random()*(result)+1);
+        }
+
+        return userMapper.headList(count);
+
+    }
+
+    @Override
     public boolean validateEmail(String email) {
         int count = userMapper.selectUserByEmail(email);
         return count > 0 ? true :false ;
@@ -46,5 +64,11 @@ public class UserServiceImpl implements UserService {
             return userMapper.insertUser(user);
 
 
+    }
+
+    @Override
+    public List<UserImage> showAllImg(int userId) {
+
+        return userMapper.showAllImg(userId);
     }
 }
