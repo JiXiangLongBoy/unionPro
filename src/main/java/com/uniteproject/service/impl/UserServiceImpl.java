@@ -43,4 +43,25 @@ public class UserServiceImpl implements UserService {
         return userMapper.headList(count);
 
     }
+
+    @Override
+    public boolean validateEmail(String email) {
+        int count = userMapper.selectUserByEmail(email);
+        return count > 0 ? true :false ;
+    }
+
+    @Override
+    public boolean validateUserName(String userName) {
+        int count = userMapper.selectUserByUserName(userName);
+        return count > 0 ? true :false ;
+    }
+
+    @Override
+    public int insertUser(User user) {
+
+
+            return userMapper.insertUser(user);
+
+
+    }
 }

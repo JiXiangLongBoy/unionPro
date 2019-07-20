@@ -6,6 +6,7 @@ import com.uniteproject.service.UserService;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -21,5 +22,30 @@ public class UserController {
         LoginResult loginResult= userService.isLogin(user);
             return loginResult;
     }
+    @ApiOperation("查询注册时邮箱是否存在，存在返回fail,不存在返回sucess")
+    @RequestMapping("/validateEmail")
+    public String validateEmail(String email){
+
+        boolean isExist = userService.validateEmail(email);
+        //数据库操作
+        return isExist?"fail":"success";
+    }
+    @ApiOperation("查询注册时账户名是否存在，存在返回fail,不存在返回sucess")
+    @RequestMapping("/validateUserName")
+    public String validateUaerName(String userName){
+
+        boolean isExist = userService.validateUserName(userName);
+        //数据库操作
+        return isExist?"fail":"success";
+    }
+
+    @ApiOperation("注册功能，像数据库插入注册信息")
+    @RequestMapping("/insertUser")
+    public String insertUser(User user){
+        int result = userService.insertUser(user);
+        System.out.println("插入数据后是否可以获取一个值："+result);
+        return result > 0 ? "success":"fail";
+    }
+
 
 }

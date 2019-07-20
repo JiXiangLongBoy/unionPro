@@ -8,5 +8,11 @@ import java.util.List;
 public interface UserService {
     LoginResult isLogin(User user);
 
+    boolean validateEmail(String email);
+
+    boolean validateUserName(String userName);
+
+    int insertUser(User user);
+
     List<User> headList();
 }

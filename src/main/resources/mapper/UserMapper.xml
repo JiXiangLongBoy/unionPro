@@ -12,6 +12,20 @@
         select count(1) from user where username=#{username} and password=#{password}
     </select>
 
+    <select id="selectUserByEmail" parameterType="string" resultType="int">
+             select count(1)  from user where email = #{email}
+        </select>
+
+    <select id="selectUserByUserName" parameterType="string" resultType="int">
+             select count(1)  from user where usernam = #{username}
+        </select>
+    <insert id="insertUser" parameterType="user" >
+      insert into user (username,  password,
+      email,phone)
+    values (#{username}, #{password},
+    #{email}, #{phone})
+    </insert>
+
     <!-- <select id="getGoodsById" parameterType="int" resultType="Goods">
          select * from goods where id = #{id}
      </select>-->
@@ -21,4 +35,6 @@
     <select id="headList" parameterType="int" resultType="user">
         select userId,userName,headImg from user limit #(count),12
     </select>
+
+
 </mapper>
