@@ -3,31 +3,72 @@ package com.uniteproject.pojo;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import io.swagger.annotations.ApiModelProperty;
 
-//食谱的实体类
+import java.util.List;
+
+//食物的实体类
 public class Foods {
 
-    @ApiModelProperty("菜品的Id")
+    @ApiModelProperty("食物的Id")
     @JsonInclude(JsonInclude.Include.NON_NULL)
     private int foodsId;
 
-    @ApiModelProperty("菜品的名字")
+    @ApiModelProperty("食物的名字")
     @JsonInclude(JsonInclude.Include.NON_NULL)
     private String foodsName;
 
-    @ApiModelProperty("菜品的描述")
+    @ApiModelProperty("食物的描述")
     @JsonInclude(JsonInclude.Include.NON_NULL)
     private String foodsDesc;
-    @ApiModelProperty("菜品的类型id")
+    @ApiModelProperty("食物的类型id")
     @JsonInclude(JsonInclude.Include.NON_NULL)
     private int foodsTypeId;
-    @ApiModelProperty("菜品对应的孕期Id")
-    @JsonInclude(JsonInclude.Include.NON_NULL)
-    private int stageId;
 
-    @ApiModelProperty("菜品的类型名字")
+    @ApiModelProperty("食物的类型名字")
     @JsonInclude(JsonInclude.Include.NON_NULL)
     private int typeName;
 
+    @ApiModelProperty("食物对应的孕期Id")
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    private int periodId;
+
+    @ApiModelProperty("食物对应的孕期名称")
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    private String periodName;
+
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    private List<Period> period;
+
+    public int getTypeName() {
+        return typeName;
+    }
+
+    public int getPeriodId() {
+        return periodId;
+    }
+
+    public void setPeriodId(int periodId) {
+        this.periodId = periodId;
+    }
+
+    public String getPeriodName() {
+        return periodName;
+    }
+
+    public void setPeriodName(String periodName) {
+        this.periodName = periodName;
+    }
+
+    public void setTypeName(int typeName) {
+        this.typeName = typeName;
+    }
+
+    public List<Period> getPeriod() {
+        return period;
+    }
+
+    public void setPeriod(List<Period> period) {
+        this.period = period;
+    }
 
     public int getFoodsId() {
         return foodsId;
@@ -61,13 +102,6 @@ public class Foods {
         this.foodsTypeId = foodsTypeId;
     }
 
-    public int getStageId() {
-        return stageId;
-    }
-
-    public void setStageId(int stageId) {
-        this.stageId = stageId;
-    }
 
     @Override
     public String toString() {
@@ -76,7 +110,8 @@ public class Foods {
                 ", foodsName='" + foodsName + '\'' +
                 ", foodsDesc='" + foodsDesc + '\'' +
                 ", foodsTypeId=" + foodsTypeId +
-                ", stageId=" + stageId +
+                ", typeName=" + typeName +
+                ", period=" + period +
                 '}';
     }
 }

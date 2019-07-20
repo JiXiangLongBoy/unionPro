@@ -46,4 +46,15 @@ public class JinNangServiceImpl implements JinNangService {
 
         return jinNangMapper.getFoodsByName(foodsName);
     }
+
+    @Override
+    public List<Foods> queryFoodsByTypeId(int foodsTypeId) {
+
+        return jinNangMapper.queryFoodsByTypeId(foodsTypeId);
+    }
+
+    @Override
+    public FoodsInfo getFoodsInfo(int foodsId) {
+        return jinNangMapper.getFoodsInfo(foodsId);
+    }
 }

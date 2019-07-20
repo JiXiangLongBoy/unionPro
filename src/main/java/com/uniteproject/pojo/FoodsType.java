@@ -5,6 +5,15 @@ public class FoodsType {
     private int foodsTypeId;
     private String typeName;
 
+    private String foodsTypeImgUrl;
+
+    public String getFoodsTypeImgUrl() {
+        return foodsTypeImgUrl;
+    }
+
+    public void setFoodsTypeImgUrl(String foodsTypeImgUrl) {
+        this.foodsTypeImgUrl = foodsTypeImgUrl;
+    }
 
     public int getFoodsTypeId() {
         return foodsTypeId;
@@ -27,6 +36,7 @@ public class FoodsType {
         return "FoodsType{" +
                 "foodsTypeId=" + foodsTypeId +
                 ", typeName='" + typeName + '\'' +
+                ", foodsTypeImgUrl='" + foodsTypeImgUrl + '\'' +
                 '}';
     }
 }
