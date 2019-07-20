@@ -7,12 +7,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.Banner;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
 @RestController
+@RequestMapping(method = RequestMethod.GET)
 public class JinNangController {
 
     @Autowired
@@ -20,7 +22,7 @@ public class JinNangController {
 
     @ApiOperation("获取轮播图的地址，返回的数据是锦囊主页面的Banner轮播图的Url地址")
     @CrossOrigin//允许跨域访问
-    @RequestMapping("/bannerUrl")
+    @RequestMapping(value = "/bannerUrl")
     public BannerUrl  getBanner(){
 
        BannerUrl bannerUrl = jinNangService.getBannerUrl();
@@ -58,12 +60,29 @@ public class JinNangController {
         return foodsList;
     }
 
-    @ApiOperation("此接口返回食物的类型以及对应的id ")
+    @ApiOperation("此接口返回食物的类型以及对应的foodsTypeId")
     @RequestMapping("/foodstype")
     public List<FoodsType> foodstype(HttpServletResponse response){
         response.setHeader("Access-Control-Allow-Origin", "*");
         List<FoodsType> foodsTypeList = jinNangService.getFoodsTypeList();
 
         return foodsTypeList;
+    }
+    @ApiOperation("此接口返回对应类型的食物，需要的参数的食物类型的foodsTypeId")
+    @RequestMapping("/queryfoodsbytypeid")
+    @CrossOrigin//允许跨域访问
+    public List<Foods> queryFoodsByTypeId(int foodsTypeId){
+        List<Foods> foodsList = jinNangService.queryFoodsByTypeId(foodsTypeId);
+        System.out.println(foodsList);
+        return foodsList;
+    }
+
+    @ApiOperation("此接口返回对应食物的详情，需要的参数是食物的foodsId")
+    @RequestMapping("/foodsinfo")
+    @CrossOrigin//允许跨域访问
+    public FoodsInfo foodsInfo(int foodsId){
+       FoodsInfo foodsInfo = jinNangService.getFoodsInfo(foodsId);
+        System.out.println(foodsInfo);
+        return foodsInfo;
     }
 }
