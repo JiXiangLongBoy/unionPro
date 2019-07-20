@@ -38,15 +38,15 @@ public class BabyController {
 
     @ApiOperation("展示的宝宝的信息,点击照片和成长记录的信息都可以取到")
     @RequestMapping("/showBaby")
-    public String showBaby(int babyId){
+    public Baby showBaby(int babyId){
 
-      String result =  babyService.selectBabyById(babyId);
+     Baby baby =  babyService.selectBabyById(babyId);
 
-      return result;
+      return baby;
     }
 
 
-    @ApiOperation("展示相册的所有照片，需要用户的id，通过id找到相片相对应的url")
+    /*@ApiOperation("展示相册的所有照片，需要用户的id，通过id找到相片相对应的url")
     @RequestMapping("/showAllImg")
     public List<UserImage> showAllImg(int userId){
 
@@ -54,7 +54,7 @@ public class BabyController {
 
         return list;
 
-    }
+    }*/
 
     @ApiOperation("图片上传")
     @RequestMapping("/upLoadImg")
@@ -88,6 +88,16 @@ public class BabyController {
 
         return result2 >0 ? "success" : "fail";
     }
+
+    /*@ApiOperation("展示成就")
+    @RequestMapping("/showcommunity")
+    public String showcommunity(int userId){
+
+       String commun
+
+        return ;
+
+    }*/
 
 
 }
