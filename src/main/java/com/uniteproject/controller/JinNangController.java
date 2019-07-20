@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
 @RestController
+@CrossOrigin//允许跨域访问
 @RequestMapping(method = RequestMethod.GET)
 public class JinNangController {
 
@@ -21,11 +22,10 @@ public class JinNangController {
     JinNangService jinNangService;
 
     @ApiOperation("获取轮播图的地址，返回的数据是锦囊主页面的Banner轮播图的Url地址")
-    @CrossOrigin//允许跨域访问
-    @RequestMapping(value = "/bannerUrl")
-    public BannerUrl  getBanner(){
+    @RequestMapping("/bannerUrl")
+    public BannerUrl getBanner() {
 
-       BannerUrl bannerUrl = jinNangService.getBannerUrl();
+        BannerUrl bannerUrl = jinNangService.getBannerUrl();
         System.out.println(bannerUrl);
 
         return bannerUrl;
@@ -33,17 +33,16 @@ public class JinNangController {
 
     @ApiOperation("返回文章的描述，以及在读次数，CyclopediaDesc描述，number播放次数")
     @RequestMapping("/essay")
-    @CrossOrigin//允许跨域访问
-    public List<Cyclopedia> getEssay(){
+    public List<Cyclopedia> getEssay() {
 
         List<Cyclopedia> cyclopediasList = jinNangService.getEssay();
 
         return cyclopediasList;
     }
+
     @ApiOperation("返回食谱主页需要展示菜品数据，foodsName是菜的名字，foodsDesc是菜品的描述 ")
     @RequestMapping("/recipe")
-    @CrossOrigin//允许跨域访问
-    public List<Recipe> getRecipe(){
+    public List<Recipe> getRecipe() {
 
         List<Recipe> foodsList = jinNangService.getRecipe();
 
@@ -52,26 +51,25 @@ public class JinNangController {
 
     @ApiOperation("此接口是食物类型界面搜索食物功能，根据输入的食品名称返回食品的对应功能,参数是输入的食品名称，如果参数为空，则返回所有的食物")
     @RequestMapping("/queryfoods")
-    @CrossOrigin//允许跨域访问
-    public List<Foods> queryFoods(String foodsName){
+    public List<Foods> queryFoods(String foodsName) {
 
-       List<Foods> foodsList= jinNangService.getFoodsByName(foodsName);
+        List<Foods> foodsList = jinNangService.getFoodsByName(foodsName);
 
         return foodsList;
     }
 
     @ApiOperation("此接口返回食物的类型以及对应的foodsTypeId")
     @RequestMapping("/foodstype")
-    public List<FoodsType> foodstype(HttpServletResponse response){
+    public List<FoodsType> foodstype(HttpServletResponse response) {
         response.setHeader("Access-Control-Allow-Origin", "*");
         List<FoodsType> foodsTypeList = jinNangService.getFoodsTypeList();
 
         return foodsTypeList;
     }
+
     @ApiOperation("此接口返回对应类型的食物，需要的参数的食物类型的foodsTypeId")
     @RequestMapping("/queryfoodsbytypeid")
-    @CrossOrigin//允许跨域访问
-    public List<Foods> queryFoodsByTypeId(int foodsTypeId){
+    public List<Foods> queryFoodsByTypeId(int foodsTypeId) {
         List<Foods> foodsList = jinNangService.queryFoodsByTypeId(foodsTypeId);
         System.out.println(foodsList);
         return foodsList;
@@ -79,9 +77,8 @@ public class JinNangController {
 
     @ApiOperation("此接口返回对应食物的详情，需要的参数是食物的foodsId")
     @RequestMapping("/foodsinfo")
-    @CrossOrigin//允许跨域访问
-    public FoodsInfo foodsInfo(int foodsId){
-       FoodsInfo foodsInfo = jinNangService.getFoodsInfo(foodsId);
+    public FoodsInfo foodsInfo(int foodsId) {
+        FoodsInfo foodsInfo = jinNangService.getFoodsInfo(foodsId);
         System.out.println(foodsInfo);
         return foodsInfo;
     }

@@ -22,6 +22,7 @@ import java.util.List;
 import java.util.UUID;
 
 @RestController
+@CrossOrigin//允许跨域访问
 public class BabyController {
 
     @Autowired
