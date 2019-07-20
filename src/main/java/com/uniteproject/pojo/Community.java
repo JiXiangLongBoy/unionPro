@@ -2,6 +2,7 @@ package com.uniteproject.pojo;
 
 import io.swagger.annotations.ApiModelProperty;
 
+
 public class Community {
     @ApiModelProperty("社区动态Id")
     private int communityId;
@@ -76,4 +77,6 @@ public class Community {
     public void setCommunityDesc(String communityDesc) {
         this.communityDesc = communityDesc;
     }
+
+
 }
