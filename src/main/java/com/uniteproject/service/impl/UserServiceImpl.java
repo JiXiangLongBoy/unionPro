@@ -7,6 +7,8 @@ import com.uniteproject.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class UserServiceImpl implements UserService {
 
@@ -25,5 +27,20 @@ public class UserServiceImpl implements UserService {
         } else {
             return new LoginResult(0,0,"用户名或密码错误，登陆失败");
         }
+    }
+
+    @Override
+    public List<User> headList() {
+        int result = userMapper.getHeadCount();
+        int count = 0;
+        if(result>12){
+            result =result-12;
+             count = (int)(Math.random()*(result)+1);
+        }else{
+             count = (int)(Math.random()*(result)+1);
+        }
+
+        return userMapper.headList(count);
+
     }
 }
