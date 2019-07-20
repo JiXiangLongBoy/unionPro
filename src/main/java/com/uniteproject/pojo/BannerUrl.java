@@ -1,10 +1,16 @@
 package com.uniteproject.pojo;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+
 public class BannerUrl {
 
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     private String bannerUrl01;
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     private String bannerUrl02;
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     private String bannerUrl03;
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     private String bannerUrl04;
 
     public String getBannerUrl01() {

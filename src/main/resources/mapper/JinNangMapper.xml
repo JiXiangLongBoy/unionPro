@@ -8,5 +8,14 @@
         select * from banner
     </select>
 
+    <select id="getEssay" resultType="Cyclopedia">
+        select * from cyclopedia
+    </select>
+
+
+    <select id="getFoods" resultType="Foods">
+        select * from foods
+    </select>
+
 
 </mapper>
