@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.uniteproject.mapper.GoodsMapper">
+    <!--<select id="getGoodsList" parameterType="Goods" resultType="int">
+       select g.*,t.typeName from goods g left join goodsType t on g.goodsTypeId = t.goodsTypeId;
+    </select>-->
+
+    <select id="getGoodsByType" parameterType="int" resultType="Goods">
+        select t.typeName ,g.* from goods g left join goodstype t on g.goodsTypeId = t.goodsTypeId where t.goodsTypeId=#{goodsTypeId} limit #{count}=#{num}
+    </select>
+
+    <select id="getGoodsList" parameterType="int" resultType="Goods">
+        select * from goods limit #{count},12
+    </select>
+    <select id="getGoodsCount" resultType="int">
+        select count(1) from goods
+    </select>
+    <select id="getGoodsById" parameterType="int" resultType="Goods">
+        select * from goods where goodsId=#{goodsId}
+    </select>
+</mapper>

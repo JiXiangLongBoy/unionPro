@@ -29,6 +29,12 @@
     <!-- <select id="getGoodsById" parameterType="int" resultType="Goods">
          select * from goods where id = #{id}
      </select>-->
+    <select id="getHeadCount" resultType="int" >
+        select count(1) from user
+    </select>
+    <select id="headList" parameterType="int" resultType="user">
+        select userId,userName,headImg from user limit #(count),12
+    </select>
 
 
 </mapper>
