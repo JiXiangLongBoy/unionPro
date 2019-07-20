@@ -13,9 +13,22 @@
     </select>
 
 
-    <select id="getFoods" resultType="Foods">
-        select * from foods
+    <select id="getRecipe" resultType="recipe">
+        select * from recipe
     </select>
 
+
+    <select id="getFoodsTypeList" resultType="foodsType">
+        select * from foodsType
+    </select>
+
+    <select id="getFoodsByName" resultType="foods" parameterType="string">
+        select * from foods
+        <where>
+            <if test="foodsName != null and foodsName !=''">
+                foodsName like '%${foodsName}%'
+            </if>
+        </where>
+    </select>
 
 </mapper>

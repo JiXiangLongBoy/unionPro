@@ -1,9 +1,7 @@
 package com.uniteproject.service.impl;
 
 import com.uniteproject.mapper.JinNangMapper;
-import com.uniteproject.pojo.BannerUrl;
-import com.uniteproject.pojo.Cyclopedia;
-import com.uniteproject.pojo.Foods;
+import com.uniteproject.pojo.*;
 import com.uniteproject.service.JinNangService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.Banner;
@@ -30,10 +28,22 @@ public class JinNangServiceImpl implements JinNangService {
     }
 
     @Override
-    public List<Foods> getFoods() {
+    public List<Recipe> getRecipe() {
 
-        List<Foods> foodsList =  jinNangMapper.getFoods();
+        List<Recipe> recipeList =  jinNangMapper.getRecipe();
 
-        return foodsList;
+        return recipeList;
+    }
+
+    @Override
+    public List<FoodsType> getFoodsTypeList() {
+
+        return jinNangMapper.getFoodsTypeList();
+    }
+
+    @Override
+    public List<Foods> getFoodsByName(String foodsName) {
+
+        return jinNangMapper.getFoodsByName(foodsName);
     }
 }
