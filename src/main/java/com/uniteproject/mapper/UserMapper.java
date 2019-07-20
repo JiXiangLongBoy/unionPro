@@ -1,12 +1,14 @@
 package com.uniteproject.mapper;
 
+
+
 import com.uniteproject.pojo.User;
+import com.uniteproject.pojo.UserImage;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
 
 @Mapper
-
 public interface UserMapper {
     int isLogin(User user);
 
@@ -21,4 +23,6 @@ public interface UserMapper {
     int selectUserByUserName(String userName);
 
     int insertUser(User user);
+
+    List<UserImage> showAllImg(int userId);
 }

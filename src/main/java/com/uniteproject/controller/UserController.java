@@ -5,9 +5,20 @@ import com.uniteproject.pojo.User;
 import com.uniteproject.service.UserService;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+import java.io.File;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.UUID;
 
 @RestController
 public class UserController {
@@ -46,6 +57,9 @@ public class UserController {
         System.out.println("插入数据后是否可以获取一个值："+result);
         return result > 0 ? "success":"fail";
     }
+
+
+
 
 
 }

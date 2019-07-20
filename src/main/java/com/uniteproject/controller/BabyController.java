@@ -89,15 +89,7 @@ public class BabyController {
         return result2 >0 ? "success" : "fail";
     }
 
-    /*@ApiOperation("展示成就")
-    @RequestMapping("/showcommunity")
-    public String showcommunity(int userId){
 
-       String commun
-
-        return ;
-
-    }*/
 
 
 }
