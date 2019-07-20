@@ -1,8 +1,6 @@
 package com.uniteproject.service;
 
-import com.uniteproject.pojo.BannerUrl;
-import com.uniteproject.pojo.Cyclopedia;
-import com.uniteproject.pojo.Foods;
+import com.uniteproject.pojo.*;
 import org.springframework.boot.Banner;
 
 import java.util.List;
@@ -12,5 +10,9 @@ public interface JinNangService {
 
     List<Cyclopedia> getEssay();
 
-    List<Foods> getFoods();
+    List<Recipe> getRecipe();
+
+    List<FoodsType> getFoodsTypeList();
+
+    List<Foods> getFoodsByName(String foodsName);
 }
