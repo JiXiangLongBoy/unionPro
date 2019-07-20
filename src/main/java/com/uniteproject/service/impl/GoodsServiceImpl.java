@@ -13,9 +13,11 @@ public class GoodsServiceImpl implements GoodsService {
     GoodsMapper goodsMapper;
     @Override
     public List<Goods> getGoodsByType(int goodsTypeId,int num) {
-        int goodsCount = goodsMapper.getGoodsCount();
-        int count = goodsCount-num;
-        return goodsMapper.getGoodsByType(goodsTypeId,num,count);
+        int count = goodsMapper.getGoodsTypeCount(goodsTypeId);
+        int goodsCount = count-num;
+        List<Goods> goods = goodsMapper.getGoodsByType(goodsTypeId, num, goodsCount);
+        System.out.println(goods);
+        return goods;
     }
 
     @Override

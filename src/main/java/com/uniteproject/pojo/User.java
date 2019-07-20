@@ -16,10 +16,29 @@ public class User {
     @JsonInclude(JsonInclude.Include.NON_NULL)
     @ApiModelProperty("用户的手机号")
     private String phone;
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    @ApiModelProperty("用户的头像")
+    private String headImg;
 
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    @ApiModelProperty("用户的id")
+    private int id;
 
+    public int getId() {
+        return id;
+    }
 
+    public void setId(int id) {
+        this.id = id;
+    }
 
+    public String getHeadImg() {
+        return headImg;
+    }
+
+    public void setHeadImg(String headImg) {
+        this.headImg = headImg;
+    }
 
     public String getUsername() {
         return username;
@@ -56,10 +75,12 @@ public class User {
     @Override
     public String toString() {
         return "User{" +
-                ", username='" + username + '\'' +
+                "username='" + username + '\'' +
                 ", password='" + password + '\'' +
                 ", email='" + email + '\'' +
                 ", phone='" + phone + '\'' +
+                ", headImg='" + headImg + '\'' +
+                ", id=" + id +
                 '}';
     }
 }
