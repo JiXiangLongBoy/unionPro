@@ -24,6 +24,10 @@ public class Foods {
     @JsonInclude(JsonInclude.Include.NON_NULL)
     private int stageId;
 
+    @ApiModelProperty("菜品的类型名字")
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    private int typeName;
+
 
     public int getFoodsId() {
         return foodsId;
