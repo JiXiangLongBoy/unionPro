@@ -24,5 +24,5 @@ public interface UserMapper {
 
     int insertUser(User user);
 
-    List<UserImage> showAllImg(int userId);
+
 }

@@ -15,4 +15,6 @@ public class CommunityServiceImpl implements CommunityService {
     public List<Community> getCommunityByType(int comTypeId) {
         return communityMapper.getCommunityByType(comTypeId);
     }
+
+
 }

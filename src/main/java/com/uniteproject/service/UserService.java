@@ -19,9 +19,5 @@ public interface UserService {
 
     int insertUser(User user);
 
-    List<UserImage> showAllImg(int userId);
-
-
-
     List<User> headList();
 }

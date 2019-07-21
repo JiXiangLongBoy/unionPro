@@ -70,9 +70,5 @@ public class UserServiceImpl implements UserService {
 
     }
 
-    @Override
-    public List<UserImage> showAllImg(int userId) {
 
-        return userMapper.showAllImg(userId);
-    }
 }
