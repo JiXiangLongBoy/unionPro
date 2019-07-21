@@ -6,7 +6,15 @@
 <mapper namespace="com.uniteproject.mapper.BabyMapper">
 
     <select id="selectBabyById" resultType="baby" parameterType="int">
-        select * from baby where babyId=${babyId}
+        select * from baby b,user u where u.id=b.userId and babyId=${babyId}
+    </select>
+
+    <select id="showAllImg" resultType="map" parameterType="int">
+        select imgUrl from userimg ui,user u where ui.userId = u.id and userId=${userId}
+    </select>
+
+    <select id="selectbabydid" parameterType="int" resultType="map">
+        select c.didTitle,c.didDesc,c.didImg from babydid c ,user u where c.userId=u.id and c.userId=${userId}
     </select>
 
     <insert id="updateUserImageByBabyId" parameterType="user">
