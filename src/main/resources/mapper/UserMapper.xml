@@ -33,7 +33,7 @@
         select count(1) from user
     </select>
     <select id="headList" parameterType="int" resultType="user">
-        select userId,userName,headImg from user limit #(count),12
+        select id,userName,headImg from user limit #{count},12
     </select>
 
     <select id="showAllImg" parameterType="int" resultType="map">

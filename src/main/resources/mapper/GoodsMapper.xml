@@ -7,9 +7,11 @@
     <!--<select id="getGoodsList" parameterType="Goods" resultType="int">
        select g.*,t.typeName from goods g left join goodsType t on g.goodsTypeId = t.goodsTypeId;
     </select>-->
-
+    <select id="getGoodsTypeCount" resultType="int">
+        select count(1) from goods g , goodstype t where g.goodsTypeId = t.goodsTypeId and g.goodsTypeId=#{goodsTypeId} group by g.goodsTypeId
+    </select>
     <select id="getGoodsByType" parameterType="int" resultType="Goods">
-        select t.typeName ,g.* from goods g left join goodstype t on g.goodsTypeId = t.goodsTypeId where t.goodsTypeId=#{goodsTypeId} limit #{count}=#{num}
+        select t.typeName ,g.* from goods g left join goodstype t on g.goodsTypeId = t.goodsTypeId where t.goodsTypeId=#{goodsTypeId} limit #{goodsCount},#{num}
     </select>
 
     <select id="getGoodsList" parameterType="int" resultType="Goods">
