@@ -27,7 +27,8 @@ public class GoodsController {
     ComTypeService comTypeService;
     @Autowired
     CommunityService communityService;
-
+    @Autowired
+    ShopService shopService;
     @RequestMapping("/headList")
     @ApiOperation("获取用户头像，随机12条")
     public List<User> headList() {
@@ -75,4 +76,12 @@ public class GoodsController {
     public List<Community> getCommunityByType(int comTypeId) {
         return communityService.getCommunityByType(comTypeId);
     }
+
+    @RequestMapping("addShop")
+    @ApiOperation("需要传递三个参数（用户id，商品id，商品数量，添加到购物车）")
+    public void addShop(int goodsId,int userId,int goodsNum){
+        shopService.addShop(goodsId,userId,goodsNum);
+    }
+
+
 }
