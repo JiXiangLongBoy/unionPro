@@ -21,6 +21,7 @@ public class MyServiceImpl implements MyService {
 
   @Override
   public List<Goods> getGoodsByUserId(int userId) {
-    return myMapper.getGoodsByUserId();
+   List<Goods> goods= myMapper.getGoodsByUserId(userId);
+    return goods ;
   }
 }

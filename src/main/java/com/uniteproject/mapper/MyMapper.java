@@ -12,5 +12,7 @@ import java.util.List;
 public interface MyMapper {
     List<Cyclopedia> getCyclopediaById(int userId);
 
-    List<Goods> getGoodsByUserId();
+    List<Goods> getGoodsByUserId(int userId);
+
+
 }

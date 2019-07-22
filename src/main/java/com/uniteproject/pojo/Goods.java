@@ -21,6 +21,9 @@ public class Goods {
     @ApiModelProperty("商品类型名称")
     private String typeName;
 
+    @ApiModelProperty("用于展示商品状态的状态码")
+    private int status;
+
     @Override
     public String toString() {
         return "Goods{" +
@@ -32,7 +35,16 @@ public class Goods {
                 ", goodsTypeId=" + goodsTypeId +
                 ", goodsP='" + goodsP + '\'' +
                 ", typeName='" + typeName + '\'' +
+                ", status=" + status +
                 '}';
+    }
+
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
     }
 
     public String getTypeName() {

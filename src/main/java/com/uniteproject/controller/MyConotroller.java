@@ -34,6 +34,8 @@ public class MyConotroller {
     @ApiOperation("我的订单，返回该用户所有订单，根据订单的状态码判断属于哪个状态。0代表代未付款，1代表未收货，2代表未发货，3代表已完成，4代表未评价，5代表售后")
     @RequestMapping("/myOrder")
     public List<Goods>  selectGoodsByuserId(int userId){
+
+        System.out.println(myService.getGoodsByUserId(userId));
         return myService.getGoodsByUserId(userId);
 
     }
