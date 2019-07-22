@@ -33,12 +33,15 @@
         select count(1) from user
     </select>
     <select id="headList" parameterType="int" resultType="user">
-        select id,userName,headImg from user limit #{count},12
+        select * from user limit #{count},12
     </select>
 
     <select id="showAllImg" parameterType="int" resultType="map">
         select imgUrl from userimg ui，user u where ui.userId=u.${userId}
     </select>
+
+
+
 
 
 </mapper>

@@ -1,5 +1,6 @@
 package com.uniteproject.pojo;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import io.swagger.annotations.ApiModelProperty;
 
 
@@ -16,6 +17,7 @@ public class AppGoods {
     public String appDesc;
     @ApiModelProperty("评价的图片")
     public String appImg;
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone="GMT+8")
     @ApiModelProperty("评价的时间")
     public Date appTime;
 

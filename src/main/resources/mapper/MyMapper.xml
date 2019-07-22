@@ -8,6 +8,14 @@
          select  * from cyclopedia c left join user_cycloppediaid uc on  c.cycid = uc.cyclopediaid left join user u  on uc.userid = u.id where u.id=#{userId};
     </select>
 
+    <select id="getGoodsByUserId" resultType="Goods" parameterType="int">
+         select o.status,g.*
+        from orderform o
+        left join goods g
+        on o.goodsId = g.goodsId
+        where o.userId = #{userid};
+    </select>
+
     <select id="getShopTro" resultType="Goods" parameterType="int">
          select g.*,s.goodsNum from goods g,shoptro s where s.userId=#{userId} and g.goodsId=s.goodsId
     </select>
@@ -17,5 +25,23 @@
     <select id="getMyMainInfo" resultType="User" parameterType="int">
         select * from user where id=#{userId}
     </select>
+
+
+    <select id="getIntegral" resultType="int" parameterType="int">
+        select userIntegral from user where id=#{userId}
+    </select>
+
+    <select id="getSign" resultType="int" parameterType="int">
+        select sign from user where id=#{userId}
+    </select>
+
+    <update id="setSign" parameterType="int">
+        UPDATE user set sign = 1 ,userIntegral = userIntegral+2 where id=#{userId}
+    </update>
+
+    <update id="updateSign">
+        UPDATE user set sign = 0
+    </update>
+
 
 </mapper>
