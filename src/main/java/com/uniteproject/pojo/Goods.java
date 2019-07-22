@@ -26,21 +26,11 @@ public class Goods {
     private String goodsP;
 
     @ApiModelProperty("商品类型名称")
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     private String typeName;
 
-    @Override
-    public String toString() {
-        return "Goods{" +
-                "goodsId=" + goodsId +
-                ", goodsName='" + goodsName + '\'' +
-                ", goodsPrice=" + goodsPrice +
-                ", goodsImg='" + goodsImg + '\'' +
-                ", goodsDecs='" + goodsDecs + '\'' +
-                ", goodsTypeId=" + goodsTypeId +
-                ", goodsP='" + goodsP + '\'' +
-                ", typeName='" + typeName + '\'' +
-                '}';
-    }
+    @ApiModelProperty(value = "购物车内商品的数量",example = "0")
+    private int goodsNum;
 
     public String getTypeName() {
         return typeName;
@@ -104,5 +94,28 @@ public class Goods {
 
     public void setGoodsP(String goodsP) {
         this.goodsP = goodsP;
+    }
+
+    public int getGoodsNum() {
+        return goodsNum;
+    }
+
+    public void setGoodsNum(int goodsNum) {
+        this.goodsNum = goodsNum;
+    }
+
+    @Override
+    public String toString() {
+        return "Goods{" +
+                "goodsId=" + goodsId +
+                ", goodsName='" + goodsName + '\'' +
+                ", goodsPrice=" + goodsPrice +
+                ", goodsImg='" + goodsImg + '\'' +
+                ", goodsDecs='" + goodsDecs + '\'' +
+                ", goodsTypeId=" + goodsTypeId +
+                ", goodsP='" + goodsP + '\'' +
+                ", typeName='" + typeName + '\'' +
+                ", goodsNum=" + goodsNum +
+                '}';
     }
 }
