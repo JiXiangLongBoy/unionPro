@@ -82,4 +82,22 @@ public class JinNangController {
         System.out.println(foodsInfo);
         return foodsInfo;
     }
+
+
+    @ApiOperation("返回孕期的阶段，及阶段对应的id值，不需要参数")
+    @RequestMapping("/period")
+    public List<Period> period() {
+        List<Period> periodList = jinNangService.getPeriod();
+        System.out.println(periodList);
+        return periodList;
+    }
+
+    @ApiOperation("返回对应阶段孕期的食物，需要的参数是period接口返回的id值")
+    @RequestMapping("/foodsbyperiodid")
+    public List<Foods> foodsByPeriodId() {
+        List<Foods> FoodsList = jinNangService.getfoodsByPeriodId();
+        System.out.println(FoodsList);
+        return FoodsList;
+    }
+
 }

@@ -17,4 +17,8 @@ public interface JinNangService {
     List<Foods> queryFoodsByTypeId(int foodsTypeId);
 
     FoodsInfo getFoodsInfo(int foodsId);
+
+    List<Period> getPeriod();
+
+    List<Foods> getfoodsByPeriodId();
 }
