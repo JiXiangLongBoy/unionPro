@@ -68,9 +68,9 @@ public class BabyController {
 
     @ApiOperation("图片上传,image_file要和提交文件的input框中的name值保持一致")
     @RequestMapping("/upLoadImg")
-    public String upLoadImage(UserImage userImage, MultipartFile image_file) throws IOException {
+    public String upLoadImage(UserImage userImage, MultipartFile file) throws IOException {
 
-        String oldFilename = image_file.getOriginalFilename();
+        String oldFilename = file.getOriginalFilename();
         System.out.println(oldFilename);
 
         //只是为得到一个新的名字
@@ -84,11 +84,11 @@ public class BabyController {
 
 
         String targetName = imageDir +dirName;
-        File file = new File(targetName);
-        if(!file.exists()){
-            file.mkdirs();
+        File file1 = new File(targetName);
+        if(!file1.exists()){
+            file1.mkdirs();
         }
-        image_file.transferTo(new File(targetName,newFileName));
+        file.transferTo(new File(targetName,newFileName));
 
         /*
         String babyId = (String) session.getAttribute("babyAccount");*/
