@@ -1,6 +1,9 @@
 package com.uniteproject.controller;
 
+import com.uniteproject.pojo.BannerUrl;
 import com.uniteproject.pojo.Cyclopedia;
+import com.uniteproject.pojo.Goods;
+import com.uniteproject.service.JinNangService;
 import com.uniteproject.pojo.Goods;
 import com.uniteproject.pojo.User;
 import com.uniteproject.service.MyService;
@@ -21,6 +24,9 @@ import java.util.List;
 public class MyConotroller {
     @Autowired
     MyService myService;
+
+
+
 
     @ApiOperation("我的收藏，根据用户ID返回收藏的百科问答文章")
     @RequestMapping("/mycollection" )
@@ -51,6 +57,17 @@ public class MyConotroller {
     public int integral(int userId){
         return myService.getIntegral(userId);
     }
+
+    @ApiOperation("我的订单，返回该用户所有订单，根据订单的状态码判断属于哪个状态。0代表代未付款，1代表未收货，2代表未发货，3代表已完成，4代表未评价，5代表售后")
+    @RequestMapping("/myOrder")
+    public List<Goods>  selectGoodsByuserId(int userId){
+
+        System.out.println(myService.getGoodsByUserId(userId));
+        return myService.getGoodsByUserId(userId);
+
+    }
+
+
 
 
     @ApiOperation("用户签到时，调用此接口，返回1代表签到成功，返回0代表重复签到，返回2代表签到异常,签到成功积分自动+2")

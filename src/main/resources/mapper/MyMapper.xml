@@ -8,6 +8,14 @@
          select  * from cyclopedia c left join user_cycloppediaid uc on  c.cycid = uc.cyclopediaid left join user u  on uc.userid = u.id where u.id=#{userId};
     </select>
 
+    <select id="getGoodsByUserId" resultType="Goods" parameterType="int">
+         select o.status,g.*
+        from orderform o
+        left join goods g
+        on o.goodsId = g.goodsId
+        where o.userId = #{userid};
+    </select>
+
     <select id="getShopTro" resultType="Goods" parameterType="int">
          select g.*,s.goodsNum from goods g,shoptro s where s.userId=#{userId} and g.goodsId=s.goodsId
     </select>

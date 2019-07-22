@@ -4,7 +4,6 @@ import com.uniteproject.mapper.BabyMapper;
 import com.uniteproject.mapper.CommunityMapper;
 import com.uniteproject.pojo.Baby;
 import com.uniteproject.pojo.BabyDid;
-import com.uniteproject.pojo.Community;
 import com.uniteproject.pojo.UserImage;
 import com.uniteproject.service.BabyService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,11 +22,6 @@ public class BabyServiceImpl implements BabyService {
 
 
 
-    @Override
-    public int insertUserImageByBabyId(String fileName, String babyId) {
-
-        return babyMapper.insertUserImageByBabyId(fileName,babyId);
-    }
 
     @Override
     public Baby selectBabyById(int babyId) {
@@ -45,6 +39,12 @@ public class BabyServiceImpl implements BabyService {
 
 
         return babyMapper.selectbabydid(userId);
+    }
+
+    @Override
+    public int insertUserImage(String s1, String s, int userId) {
+
+        return babyMapper.insertUserImage(s1,s,userId);
     }
 
 
