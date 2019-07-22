@@ -28,14 +28,6 @@ public class JinNangServiceImpl implements JinNangService {
     }
 
     @Override
-    public List<Recipe> getRecipe() {
-
-        List<Recipe> recipeList =  jinNangMapper.getRecipe();
-
-        return recipeList;
-    }
-
-    @Override
     public List<FoodsType> getFoodsTypeList() {
 
         return jinNangMapper.getFoodsTypeList();

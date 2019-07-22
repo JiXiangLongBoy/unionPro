@@ -44,12 +44,6 @@
         select * from cyclopedia
     </select>
 
-
-    <select id="getRecipe" resultType="recipe">
-        select * from recipe
-    </select>
-
-
     <select id="getFoodsTypeList" resultType="foodsType">
         select * from foodsType
     </select>

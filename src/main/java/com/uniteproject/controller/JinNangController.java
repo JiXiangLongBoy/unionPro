@@ -40,11 +40,11 @@ public class JinNangController {
         return cyclopediasList;
     }
 
-    @ApiOperation("返回食谱主页需要展示菜品数据，foodsName是菜的名字，foodsDesc是菜品的描述 ")
+    @ApiOperation("返回食谱主页需要展示食物数据，foodsName是食物的名字，foodsDesc是菜品的描述 ")
     @RequestMapping("/recipe")
-    public List<Recipe> getRecipe() {
+    public List<Foods> getRecipe() {
 
-        List<Recipe> foodsList = jinNangService.getRecipe();
+        List<Foods> foodsList = jinNangService.getFoodsByName("");
 
         return foodsList;
     }
