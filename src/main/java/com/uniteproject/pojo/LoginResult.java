@@ -9,9 +9,12 @@ import io.swagger.annotations.ApiModelProperty;
 public class LoginResult {
 
     @JsonInclude(JsonInclude.Include.NON_NULL)
+    @ApiModelProperty(value = "状态",example = "0")
     private int status;
+    @ApiModelProperty(value = "token",example = "0")
     @JsonInclude(JsonInclude.Include.NON_NULL)
     private int token;
+
     @JsonInclude(JsonInclude.Include.NON_NULL)
     private String message;
 

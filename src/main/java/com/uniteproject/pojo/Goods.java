@@ -1,39 +1,36 @@
 package com.uniteproject.pojo;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import io.swagger.annotations.ApiModelProperty;
 
 public class Goods {
-    @ApiModelProperty("商品id")
+
+    @ApiModelProperty(value = "商品id",example = "0")
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     private int goodsId;
     @ApiModelProperty("商品名称")
     private String goodsName;
+
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     @ApiModelProperty("商品价格")
     private int goodsPrice;
     @ApiModelProperty("商品图片")
     private String goodsImg;
     @ApiModelProperty("商品描述")
     private String goodsDecs;
-    @ApiModelProperty("商品类型Id")
+
+    @ApiModelProperty(value = "商品类型Id",example = "0")
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     private int goodsTypeId;
     @ApiModelProperty("商品评价")
     private String goodsP;
 
     @ApiModelProperty("商品类型名称")
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     private String typeName;
 
-    @Override
-    public String toString() {
-        return "Goods{" +
-                "goodsId=" + goodsId +
-                ", goodsName='" + goodsName + '\'' +
-                ", goodsPrice=" + goodsPrice +
-                ", goodsImg='" + goodsImg + '\'' +
-                ", goodsDecs='" + goodsDecs + '\'' +
-                ", goodsTypeId=" + goodsTypeId +
-                ", goodsP='" + goodsP + '\'' +
-                ", typeName='" + typeName + '\'' +
-                '}';
-    }
+    @ApiModelProperty(value = "购物车内商品的数量",example = "0")
+    private int goodsNum;
 
     public String getTypeName() {
         return typeName;
@@ -97,5 +94,28 @@ public class Goods {
 
     public void setGoodsP(String goodsP) {
         this.goodsP = goodsP;
+    }
+
+    public int getGoodsNum() {
+        return goodsNum;
+    }
+
+    public void setGoodsNum(int goodsNum) {
+        this.goodsNum = goodsNum;
+    }
+
+    @Override
+    public String toString() {
+        return "Goods{" +
+                "goodsId=" + goodsId +
+                ", goodsName='" + goodsName + '\'' +
+                ", goodsPrice=" + goodsPrice +
+                ", goodsImg='" + goodsImg + '\'' +
+                ", goodsDecs='" + goodsDecs + '\'' +
+                ", goodsTypeId=" + goodsTypeId +
+                ", goodsP='" + goodsP + '\'' +
+                ", typeName='" + typeName + '\'' +
+                ", goodsNum=" + goodsNum +
+                '}';
     }
 }

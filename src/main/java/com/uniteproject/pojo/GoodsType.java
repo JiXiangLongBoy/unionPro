@@ -3,7 +3,7 @@ package com.uniteproject.pojo;
 import io.swagger.annotations.ApiModelProperty;
 
 public class GoodsType {
-    @ApiModelProperty("商品类型Id")
+    @ApiModelProperty(value = "商品类型Id",example = "0")
     private int goodsTypeId;
     @ApiModelProperty("商品类型名称")
     private String typeName;

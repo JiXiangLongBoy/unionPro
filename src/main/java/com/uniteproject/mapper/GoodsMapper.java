@@ -6,7 +6,7 @@ import org.apache.ibatis.annotations.Mapper;
 import java.util.List;
 @Mapper
 public interface GoodsMapper {
-    List<Goods> getGoodsByType(int goodsCount, int num, int goodsTypeId);
+    List<Goods> getGoodsByType(int goodsTypeId, int num, int goodsCount);
 
     List<Goods> getGoodsList(int count);
 

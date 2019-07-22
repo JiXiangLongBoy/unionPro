@@ -1,11 +1,14 @@
 package com.uniteproject.pojo;
 
-public class FoodsInfoIssue {
+import io.swagger.annotations.ApiModelProperty;
 
+public class FoodsInfoIssue {
+    @ApiModelProperty(value = "id",example = "0")
     private int id;
     private String ask;
     private String notice;
     private String answer;
+    @ApiModelProperty(value = "食物信息id",example = "0")
     private int foodsInfoId;
 
     public int getId() {

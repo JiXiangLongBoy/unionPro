@@ -1,5 +1,7 @@
 package com.uniteproject.pojo;
 
+import io.swagger.annotations.ApiModelProperty;
+
 import java.util.List;
 
 public class FoodsInfo {
@@ -8,6 +10,7 @@ public class FoodsInfo {
     private String foodsImgUrl;
     private String foodsDesc;
     private List<FoodsInfoIssue> foodsInfoIssue;
+    @ApiModelProperty(value = "食物id",example = "0")
     private int foodsId;
 
     public int getFoodsId() {
