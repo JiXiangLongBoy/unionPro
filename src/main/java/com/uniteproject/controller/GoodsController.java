@@ -29,6 +29,10 @@ public class GoodsController {
     CommunityService communityService;
     @Autowired
     ShopService shopService;
+    @Autowired
+    AddDynService addDynService;
+    @Autowired
+    UserAttService userAttService;
     @RequestMapping("/headList")
     @ApiOperation("获取用户头像，随机12条")
     public List<User> headList() {
@@ -83,5 +87,15 @@ public class GoodsController {
         shopService.addShop(goodsId,userId,goodsNum);
     }
 
+    @RequestMapping("addAtt")
+    @ApiOperation("需要传递参数（int userId ‘关注人id’，int addUserAttId ‘被关注人id’）添加用户关注")
+    public void addAtt(int userId,int addUserAttId){
+        addDynService.addAtt(userId,addUserAttId);
+    }
+    @RequestMapping("attList")
+    @ApiOperation("展示关注动态")
+    public List<UserAtt> attList(int userId){
+       return userAttService.attList(userId);
+    }
 
 }
