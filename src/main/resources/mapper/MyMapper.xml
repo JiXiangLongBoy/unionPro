@@ -16,6 +16,14 @@
         where o.userId = #{userid};
     </select>
 
+    <select id="getShopTro" resultType="Goods" parameterType="int">
+         select g.*,s.goodsNum from goods g,shoptro s where s.userId=#{userId} and g.goodsId=s.goodsId
+    </select>
 
+
+
+    <select id="getMyMainInfo" resultType="User" parameterType="int">
+        select * from user where id=#{userId}
+    </select>
 
 </mapper>

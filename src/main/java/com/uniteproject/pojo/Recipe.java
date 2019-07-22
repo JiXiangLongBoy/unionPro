@@ -1,5 +1,8 @@
 package com.uniteproject.pojo;
 
+/**
+ * 菜谱
+ */
 public class Recipe {
 
     private int id;
@@ -8,6 +11,16 @@ public class Recipe {
     private int periodId;
     private int periodName;
     private String recipeText;
+    private String recipeImgUrl;
+
+
+    public String getRecipeImgUrl() {
+        return recipeImgUrl;
+    }
+
+    public void setRecipeImgUrl(String recipeImgUrl) {
+        this.recipeImgUrl = recipeImgUrl;
+    }
 
     public int getId() {
         return id;
@@ -66,6 +79,7 @@ public class Recipe {
                 ", periodId=" + periodId +
                 ", periodName=" + periodName +
                 ", recipeText='" + recipeText + '\'' +
+                ", recipeImgUrl='" + recipeImgUrl + '\'' +
                 '}';
     }
 }

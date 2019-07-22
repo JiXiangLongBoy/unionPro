@@ -6,4 +6,6 @@
     <select id="getCommunityByType" parameterType="int" resultType="Community">
         select c.*,u.userName,u.headImg from community c ,user u where c.userId=u.id and comTypeId=#{comTypeId}
     </select>
+
+
 </mapper>

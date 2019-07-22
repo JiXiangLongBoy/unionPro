@@ -3,7 +3,7 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.uniteproject.mapper.AppGoodsMapper">
-    <select id="getAppGoodsList" parameterType="int" resultType="Goods">
+    <select id="getAppGoodsList" parameterType="int" resultType="AppGoods">
         select a.* ,u.userName,u.headImg,g.goodsName from appgoods a,user u,goods g where a.userId = u.id and a.goodsId = g.goodsId
     </select>
 </mapper>

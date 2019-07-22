@@ -33,15 +33,19 @@ public class UserServiceImpl implements UserService {
     @Override
     public List<User> headList() {
         int result = userMapper.getHeadCount();
+        System.out.println(result);
         int count = 0;
         if(result>12){
             result =result-12;
-             count = (int)(Math.random()*(result)+1);
+             count = (int)(Math.random()*(result));
         }else{
-             count = (int)(Math.random()*(result)+1);
-        }
 
-        return userMapper.headList(count);
+             count = (int)(Math.random()*1);
+        }
+        System.out.println(count);
+        List<User> users = userMapper.headList(count);
+        System.out.println(users);
+        return users;
 
     }
 
@@ -66,9 +70,5 @@ public class UserServiceImpl implements UserService {
 
     }
 
-    @Override
-    public List<UserImage> showAllImg(int userId) {
 
-        return userMapper.showAllImg(userId);
-    }
 }

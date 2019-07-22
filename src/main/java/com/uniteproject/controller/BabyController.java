@@ -1,6 +1,8 @@
 package com.uniteproject.controller;
 
 import com.uniteproject.pojo.Baby;
+import com.uniteproject.pojo.BabyDid;
+import com.uniteproject.pojo.Community;
 import com.uniteproject.pojo.UserImage;
 import com.uniteproject.service.BabyService;
 import com.uniteproject.service.UserService;
@@ -9,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -22,6 +25,8 @@ import java.util.List;
 import java.util.UUID;
 
 @RestController
+@CrossOrigin//允许跨域访问
+@RequestMapping(method = {RequestMethod.GET,RequestMethod.POST})
 public class BabyController {
 
     @Autowired
@@ -36,7 +41,9 @@ public class BabyController {
     @Value("http://10.8.157.38:80/img/")
     String imageURL;
 
-    @ApiOperation("展示的宝宝的信息,点击照片和成长记录的信息都可以取到")
+
+
+    @ApiOperation("展示的宝宝的信息,点击照片和成长记录的信息都可以取到,包括宝宝的成长记录")
     @RequestMapping("/showBaby")
     public Baby showBaby(int babyId){
 
@@ -46,15 +53,15 @@ public class BabyController {
     }
 
 
-    /*@ApiOperation("展示相册的所有照片，需要用户的id，通过id找到相片相对应的url")
+    @ApiOperation("展示相册的所有照片，需要用户的id，通过id找到相片相对应的url")
     @RequestMapping("/showAllImg")
     public List<UserImage> showAllImg(int userId){
 
-        List<UserImage> list = userService.showAllImg(userId);
+        List<UserImage> list = babyService.showAllImg(userId);
 
         return list;
 
-    }*/
+    }
 
     @ApiOperation("图片上传")
     @RequestMapping("/upLoadImg")
@@ -89,7 +96,16 @@ public class BabyController {
         return result2 >0 ? "success" : "fail";
     }
 
+    @ApiOperation("展示成就")
+    @RequestMapping("/showbabydid")
+    public List<BabyDid> showbaydid(int userId){
 
+       List<BabyDid> list = babyService.selectbabydid(userId);
+
+
+        return list;
+
+    }
 
 
 }

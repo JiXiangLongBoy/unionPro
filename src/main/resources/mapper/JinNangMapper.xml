@@ -4,6 +4,38 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.uniteproject.mapper.JinNangMapper">
 
+    <resultMap id="foodsMap" type="foods">
+        <id column="foodsId" property="foodsId"/>
+        <result column="foodsName" property="foodsName"/>
+        <result column="foodsDesc" property="foodsDesc"/>
+        <result column="foodsTypeId" property="foodsTypeId"/>
+        <result column="typeName" property="typeName"/>
+
+        <collection property="period" ofType="Period">
+            <id column="id" property="id"/>
+            <result column="periodName" property="periodName"/>
+        </collection>
+    </resultMap>
+
+
+    <resultMap id="foodsInfoMap" type="foodsinfo">
+        <id property="id" column="iId"/>
+        <result property="foodsImgUrl" column="foodsImgUrl"/>
+        <result property="foodsDesc" column="foodsDesc"/>
+        <result property="foodsId" column="foodsId"/>
+
+        <collection property="foodsInfoIssue" ofType="FoodsInfoIssue">
+            <id property="id" column="isId"/>
+            <result property="ask" column="ask"/>
+            <result property="notice" column="notice"/>
+            <result property="notice" column="notice"/>
+            <result property="answer" column="answer"/>
+            <result property="foodsInfoId" column="foodsInfoId"/>
+        </collection>
+
+    </resultMap>
+
+
     <select id="getBannerUrl" resultType="BannerUrl">
         select * from banner
     </select>
@@ -30,5 +62,14 @@
             </if>
         </where>
     </select>
+
+    <select id="queryFoodsByTypeId" parameterType="int" resultType="foods">
+   select f.*,p.periodName from foods f,period p where f.foodsTypeId=#{foodsTypeId} and f.periodId=p.id
+    </select>
+
+    <select id="getFoodsInfo" parameterType="int" resultMap="foodsInfoMap">
+        select info.*,info.id as iId,issue.*,issue.id as isId from foodsinfo info left join foodsinfoissue issue on info.foodsId=#{foodsId} and issue.foodsInfoId=info.id
+    </select>
+
 
 </mapper>

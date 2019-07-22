@@ -1,7 +1,11 @@
 package com.uniteproject.service;
 
 import com.uniteproject.pojo.Baby;
+import com.uniteproject.pojo.BabyDid;
+import com.uniteproject.pojo.Community;
 import com.uniteproject.pojo.UserImage;
+
+import java.util.List;
 
 public interface BabyService {
 
@@ -9,5 +13,10 @@ public interface BabyService {
 
     Baby selectBabyById(int babyId);
 
-   // String selectcommunity(int communityId);
+
+    List<UserImage> showAllImg(int userId);
+
+
+
+    List<BabyDid> selectbabydid(int userId);
 }
