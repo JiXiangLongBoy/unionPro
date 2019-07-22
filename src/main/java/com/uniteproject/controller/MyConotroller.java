@@ -1,6 +1,7 @@
 package com.uniteproject.controller;
 
 import com.uniteproject.pojo.Cyclopedia;
+import com.uniteproject.pojo.Goods;
 import com.uniteproject.service.MyService;
 import io.swagger.annotations.ApiModelProperty;
 import io.swagger.annotations.ApiOperation;
@@ -28,4 +29,15 @@ public class MyConotroller {
         System.out.println(cyclopedia);
         return cyclopedia;
     }
+
+    @ApiOperation("购物车，返回对应用户的购物车数据，需要的参数是用户的token值,返回值中的goodsNum是购物车的单品件数")
+    @RequestMapping("/shoptro" )
+    public List<Goods> shoptro(int userId){
+
+
+        return myService.getShopTro(userId);
+
+    }
+
+
 }
