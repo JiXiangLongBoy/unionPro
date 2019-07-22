@@ -30,10 +30,6 @@ public class User {
     private int userAttention;
     @ApiModelProperty(value = "用户的粉丝数量",example = "0")
     private int userFans;
- /*   @ApiModelProperty(value = "用户的积分",example = "0")
-    private int userIntegral;
-    @ApiModelProperty(value = "用户的签到状态。0表示未签到，1表示已签到",example = "0")
-    private int sign;*/
 
     @JsonInclude(JsonInclude.Include.NON_NULL)
     @ApiModelProperty(value = "用户的id",example = "0")
