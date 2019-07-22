@@ -1,7 +1,9 @@
 package com.uniteproject.pojo;
 
-public class FoodsType {
+import io.swagger.annotations.ApiModelProperty;
 
+public class FoodsType {
+    @ApiModelProperty(value = "食品类型id",example = "0")
     private int foodsTypeId;
     private String typeName;
 

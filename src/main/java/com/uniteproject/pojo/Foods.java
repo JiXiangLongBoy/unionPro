@@ -8,7 +8,7 @@ import java.util.List;
 //食物的实体类
 public class Foods {
 
-    @ApiModelProperty("食物的Id")
+    @ApiModelProperty(value = "食物的Id",example = "0")
     @JsonInclude(JsonInclude.Include.NON_NULL)
     private int foodsId;
 

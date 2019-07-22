@@ -1,7 +1,9 @@
 package com.uniteproject.pojo;
 
-public class Period {
+import io.swagger.annotations.ApiModelProperty;
 
+public class Period {
+    @ApiModelProperty(value = "",example = "0")
     private int id;
     private String periodName;
 

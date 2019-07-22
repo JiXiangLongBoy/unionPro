@@ -1,10 +1,14 @@
 package com.uniteproject.pojo;
 
+import io.swagger.annotations.ApiModelProperty;
+
 public class UserImage {
 
     //用户相片id
+    @ApiModelProperty(value = "用户相片id",example = "0")
     private int imgId;
     //用户id
+    @ApiModelProperty(value = "用户id",example = "0")
     private int userId;
     //照片地址
     private String imgUrl;

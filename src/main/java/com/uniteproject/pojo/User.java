@@ -21,7 +21,7 @@ public class User {
     private String headImg;
 
     @JsonInclude(JsonInclude.Include.NON_NULL)
-    @ApiModelProperty("用户的id")
+    @ApiModelProperty(value = "用户的id",example = "0")
     private int id;
 
     public int getId() {

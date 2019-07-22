@@ -4,7 +4,8 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import io.swagger.annotations.ApiModelProperty;
 
 public class Goods {
-    @ApiModelProperty("商品id")
+
+    @ApiModelProperty(value = "商品id",example = "0")
     @JsonInclude(JsonInclude.Include.NON_NULL)
     private int goodsId;
     @ApiModelProperty("商品名称")
@@ -17,7 +18,6 @@ public class Goods {
     private String goodsImg;
     @ApiModelProperty("商品描述")
     private String goodsDecs;
-
 
     @ApiModelProperty(value = "商品类型Id",example = "0")
     @JsonInclude(JsonInclude.Include.NON_NULL)
