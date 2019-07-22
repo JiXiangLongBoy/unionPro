@@ -17,8 +17,8 @@
         select c.didTitle,c.didDesc,c.didImg from babydid c ,user u where c.userId=u.id and c.userId=${userId}
     </select>
 
-    <insert id="updateUserImageByBabyId" parameterType="user">
-        insert into userImg(imgUrl) value (#{imgUrl}) where userId = #{userId}
+    <insert id="insertUserImageByBabyId" parameterType="user">
+        insert into userImg(imgId,userId,imgUrl,imgDesc) value (null,#{userId},#{s1},#{s})
     </insert>
 
 </mapper>

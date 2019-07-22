@@ -7,7 +7,6 @@ import io.swagger.annotations.ApiModelProperty;
 public class User {
     @JsonInclude(JsonInclude.Include.NON_NULL)
     @ApiModelProperty("登录用户名")
-    @JsonIgnore //标记在属性或者方法上，返回的json数据即不包含该属性
     private String username;
     @JsonInclude(JsonInclude.Include.NON_NULL)
     @JsonIgnore//标记在属性或者方法上，返回的json数据即不包含该属性
@@ -29,7 +28,7 @@ public class User {
     private String userMonicker;
     @ApiModelProperty(value = "用户的id",example = "0")
     private int userAttention;
-    @ApiModelProperty(value = "用户的id",example = "0")
+    @ApiModelProperty(value = "用户的粉丝数量",example = "0")
     private int userFans;
 
     @JsonInclude(JsonInclude.Include.NON_NULL)

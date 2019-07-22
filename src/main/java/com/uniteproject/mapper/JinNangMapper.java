@@ -12,7 +12,6 @@ public interface JinNangMapper {
 
     List<Cyclopedia> getEssay();
 
-    List<Recipe> getRecipe();
 
     List<FoodsType> getFoodsTypeList();
 
