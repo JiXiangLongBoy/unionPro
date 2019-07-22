@@ -15,7 +15,7 @@ import java.util.List;
 
 @RestController
 @CrossOrigin//允许跨域访问
-@RequestMapping(method = RequestMethod.GET)
+@RequestMapping(method = {RequestMethod.GET,RequestMethod.POST})
 public class JinNangController {
 
     @Autowired

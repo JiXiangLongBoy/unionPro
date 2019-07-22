@@ -27,6 +27,10 @@ public class Foods {
     @JsonInclude(JsonInclude.Include.NON_NULL)
     private int typeName;
 
+    @ApiModelProperty("食物的图片路径")
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    private String foodsImgUrl;
+
     @ApiModelProperty("食物对应的孕期Id")
     @JsonInclude(JsonInclude.Include.NON_NULL)
     private int periodId;
@@ -40,6 +44,15 @@ public class Foods {
 
     public int getTypeName() {
         return typeName;
+    }
+
+
+    public String getFoodsImgUrl() {
+        return foodsImgUrl;
+    }
+
+    public void setFoodsImgUrl(String foodsImgUrl) {
+        this.foodsImgUrl = foodsImgUrl;
     }
 
     public int getPeriodId() {

@@ -1,19 +1,26 @@
 package com.uniteproject.pojo;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import io.swagger.annotations.ApiModelProperty;
 
 public class Goods {
     @ApiModelProperty("商品id")
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     private int goodsId;
     @ApiModelProperty("商品名称")
     private String goodsName;
+
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     @ApiModelProperty("商品价格")
     private int goodsPrice;
     @ApiModelProperty("商品图片")
     private String goodsImg;
     @ApiModelProperty("商品描述")
     private String goodsDecs;
-    @ApiModelProperty("商品类型Id")
+
+
+    @ApiModelProperty(value = "商品类型Id",example = "0")
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     private int goodsTypeId;
     @ApiModelProperty("商品评价")
     private String goodsP;
