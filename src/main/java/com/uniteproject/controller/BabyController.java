@@ -47,12 +47,13 @@ public class BabyController {
 
     @ApiOperation("展示的宝宝的信息,点击照片和成长记录的信息都可以取到,包括宝宝的成长记录")
     @RequestMapping("/showBaby")
-    public Baby showBaby(int babyId){
+    public Baby showBaby(int userId){
 
-     Baby baby =  babyService.selectBabyById(babyId);
+     Baby baby =  babyService.selectBabyById(userId);
 
       return baby;
     }
+
 
 
     @ApiOperation("展示相册的所有照片，需要用户的id，通过id找到相片相对应的url")
@@ -108,6 +109,16 @@ public class BabyController {
         return list;
 
     }
+
+    @ApiOperation("添加宝宝信息,需要用户的id，知道为哪个宝宝添加信息")
+    @RequestMapping("/addBaby")
+    public String addBaby(int userId){
+
+       int info = babyService.insertBaby(userId);
+       //info大于0则返回插入成功，反之失败
+       return info > 0 ? "success":"false";
+    }
+
 
 
 }

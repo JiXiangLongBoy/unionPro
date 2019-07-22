@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface BabyService {
 
-    //int insertUserImageByBabyId(String fileName, String babyId);
+
 
     Baby selectBabyById(int babyId);
 
@@ -21,4 +21,8 @@ public interface BabyService {
 
 
     int insertUserImage(String s1, String s, int userId);
+
+    int insertBaby(int userId);
+
+
 }
