@@ -23,4 +23,5 @@
     <select id="getGoodsById" parameterType="int" resultType="Goods">
         select * from goods where goodsId=#{goodsId}
     </select>
+
 </mapper>
