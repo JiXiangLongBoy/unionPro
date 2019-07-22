@@ -6,7 +6,9 @@ import com.uniteproject.pojo.Community;
 import com.uniteproject.pojo.UserImage;
 import com.uniteproject.service.BabyService;
 import com.uniteproject.service.UserService;
+import io.swagger.annotations.ApiModelProperty;
 import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -61,10 +63,9 @@ public class BabyController {
 
     }
 
-    @ApiOperation("图片上传")
+    @ApiOperation("图片上传,image_file要和提交文件的input框中的name值保持一致")
     @RequestMapping("/upLoadImg")
-
-    public String upLoadImage(HttpServletRequest request, MultipartFile image_file, HttpSession session) throws IOException {
+    public String upLoadImage(UserImage userImage, MultipartFile image_file) throws IOException {
 
         String oldFilename = image_file.getOriginalFilename();
         System.out.println(oldFilename);
@@ -86,10 +87,12 @@ public class BabyController {
         }
         image_file.transferTo(new File(targetName,newFileName));
 
-
-        String babyId = (String) session.getAttribute("userAccount");
+        /*
+        String babyId = (String) session.getAttribute("babyAccount");*/
+        int userId = userImage.getUserId();
         //保存到数据库
-        int result2 = babyService.insertUserImageByBabyId(imageURL+dirName+"/"+newFileName,babyId);
+        String userDesc=userImage.getImgDesc();
+        int result2 = babyService.insertUserImage(imageURL+dirName+"/"+newFileName,userDesc,userId);
 
         return result2 >0 ? "success" : "fail";
     }
@@ -99,7 +102,6 @@ public class BabyController {
     public List<BabyDid> showbaydid(int userId){
 
        List<BabyDid> list = babyService.selectbabydid(userId);
-
 
         return list;
 
