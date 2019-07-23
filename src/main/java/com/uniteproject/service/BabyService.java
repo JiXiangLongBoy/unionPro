@@ -20,5 +20,7 @@ public interface BabyService {
     int insertBaby(int userId);
 
 
-    int insertUserImage(String s, String userDesc, int userId);
+
+
+    int saveAndInsertImage(UserImage userImage);
 }

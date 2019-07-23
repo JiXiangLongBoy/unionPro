@@ -2,14 +2,11 @@ package com.uniteproject.controller;
 
 import com.uniteproject.pojo.Baby;
 import com.uniteproject.pojo.BabyDid;
-import com.uniteproject.pojo.Community;
 import com.uniteproject.pojo.UserImage;
 import com.uniteproject.service.BabyService;
 import com.uniteproject.service.UserService;
 import com.uniteproject.utils.qiNiuUploadUtils;
-import io.swagger.annotations.ApiModelProperty;
 import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.ApiParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -18,8 +15,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
@@ -67,37 +62,17 @@ public class BabyController {
 
     }
 
-    @ApiOperation("图片上传,image_file要和提交文件的input框中的name值保持一致")
+    @ApiOperation("图片上传,image_file要和提交文件的input框中的name值保持一致，图片保存在云服务器上")
     @RequestMapping("/upLoadImg")
     public String upLoadImage(UserImage userImage, MultipartFile file) throws IOException {
 
-        String oldFilename = file.getOriginalFilename();
-        System.out.println(oldFilename);
+        System.out.println("执行方法");
+        qiNiuUploadUtils qiNiuUploadUtils = new qiNiuUploadUtils();
+        String upload =qiNiuUploadUtils.upload(file);//获得用户上换头像
+        System.out.println("lianjie:"+upload);
 
-        //只是为得到一个新的名字
-        String suffixName = oldFilename.substring(oldFilename.lastIndexOf("."));
-        String newFileName = UUID.randomUUID().toString().replace("-", "") + suffixName;
-
-        //为了将图片进行归类，我们可以以时间的形式进行文件夹的创建
-        Date date = new Date();
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-        String dirName = dateFormat.format(date);
-
-
-        String targetName = imageDir + dirName;
-        File file1 = new File(targetName);
-        if (!file1.exists()) {
-            file1.mkdirs();
-        }
-        file.transferTo(new File(targetName, newFileName));
-
-        /*
-        String babyId = (String) session.getAttribute("babyAccount");*/
-        int userId = userImage.getUserId();
-        //保存到数据库
-        String userDesc = userImage.getImgDesc();
-        int result2 = babyService.insertUserImage(imageURL + dirName + "/" + newFileName, userDesc, userId);
-
+        userImage.setImgUrl(upload);
+        int result2 = babyService.saveAndInsertImage(userImage);
         return result2 > 0 ? "success" : "fail";
     }
 
