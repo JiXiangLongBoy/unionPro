@@ -6,6 +6,7 @@ import com.uniteproject.pojo.Community;
 import com.uniteproject.pojo.UserImage;
 import com.uniteproject.service.BabyService;
 import com.uniteproject.service.UserService;
+import com.uniteproject.utils.qiNiuUploadUtils;
 import io.swagger.annotations.ApiModelProperty;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
@@ -37,11 +38,6 @@ public class BabyController {
     @Autowired
     UserService userService;
 
-    @Value("C:\\AMD\\")
-    String imageDir;
-
-    @Value("http://10.8.157.38:80/img/")
-    String imageURL;
 
 
 
@@ -70,32 +66,13 @@ public class BabyController {
     @RequestMapping("/upLoadImg")
     public String upLoadImage(UserImage userImage, MultipartFile file) throws IOException {
 
-        String oldFilename = file.getOriginalFilename();
-        System.out.println(oldFilename);
+        System.out.println("执行方法");
+        qiNiuUploadUtils qiNiuUploadUtils = new qiNiuUploadUtils();
+        String upload =qiNiuUploadUtils.upload(file);//获得用户上换头像
+        System.out.println("lianjie:"+upload);
 
-        //只是为得到一个新的名字
-        String suffixName = oldFilename.substring(oldFilename.lastIndexOf("."));
-        String newFileName = UUID.randomUUID().toString().replace("-","")+suffixName;
-
-        //为了将图片进行归类，我们可以以时间的形式进行文件夹的创建
-        Date date =new Date();
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-        String dirName = dateFormat.format(date);
-
-
-        String targetName = imageDir +dirName;
-        File file1 = new File(targetName);
-        if(!file1.exists()){
-            file1.mkdirs();
-        }
-        file.transferTo(new File(targetName,newFileName));
-
-        /*
-        String babyId = (String) session.getAttribute("babyAccount");*/
-        int userId = userImage.getUserId();
-        //保存到数据库
-        String userDesc=userImage.getImgDesc();
-        int result2 = babyService.insertUserImage(imageURL+dirName+"/"+newFileName,userDesc,userId);
+        userImage.setImgUrl(upload);
+        int  result2 = babyService.insertUserImage(userImage);
 
         return result2 >0 ? "success" : "fail";
     }
