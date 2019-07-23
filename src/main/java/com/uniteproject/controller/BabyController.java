@@ -52,16 +52,16 @@ public class BabyController {
 
     @ApiOperation("图片上传,image_file要和提交文件的input框中的name值保持一致，图片保存在云服务器上")
     @RequestMapping("/upLoadImg")
-    public String upLoadImage(UserImage userImage, HttpServletResponse response) throws IOException {
+    public String upLoadImage(int userId,String imgUrl,String imgDesc, HttpServletResponse response) throws IOException {
 
         response.setHeader("Access-Control-Allow-Origin", "*");
 
         System.out.println("执行方法");
-        System.out.println(userImage.getImgUrl());
-        System.out.println(userImage.getImgDesc());
-        System.out.println(userImage.getUserId());
+        System.out.println(userId);
+        System.out.println(imgDesc);
+        System.out.println(imgUrl);
         System.out.println("执行结束");
-        int result2 = babyService.saveAndInsertImage(userImage);
+        int result2 = babyService.saveAndInsertImage(userId,imgUrl,imgDesc);
         return result2 > 0 ? "success" : "fail";
     }
 
