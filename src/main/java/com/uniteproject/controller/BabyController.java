@@ -1,5 +1,6 @@
 package com.uniteproject.controller;
 
+import com.sun.deploy.net.HttpResponse;
 import com.uniteproject.pojo.Baby;
 import com.uniteproject.pojo.BabyDid;
 import com.uniteproject.pojo.UserImage;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.http.HttpServletResponse;
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
@@ -64,14 +66,18 @@ public class BabyController {
 
     @ApiOperation("图片上传,image_file要和提交文件的input框中的name值保持一致，图片保存在云服务器上")
     @RequestMapping("/upLoadImg")
-    public String upLoadImage(UserImage userImage, MultipartFile file) throws IOException {
+    public String upLoadImage(UserImage userImage, MultipartFile file, HttpServletResponse response) throws IOException {
 
         System.out.println("执行方法");
+
         qiNiuUploadUtils qiNiuUploadUtils = new qiNiuUploadUtils();
         String upload =qiNiuUploadUtils.upload(file);//获得用户上换头像
         System.out.println("lianjie:"+upload);
-
+        //测试添加，解决跨域响应头
+        response.setHeader("Access-Control-Allow-Origin","*");
+        response.setHeader("Cache-Controller","no-cache");
         userImage.setImgUrl(upload);
+
         int result2 = babyService.saveAndInsertImage(userImage);
         return result2 > 0 ? "success" : "fail";
     }
