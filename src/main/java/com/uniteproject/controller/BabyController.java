@@ -28,13 +28,6 @@ public class BabyController {
     @Autowired
     UserService userService;
 
-    @Value("C:\\AMD\\")
-    String imageDir;
-
-    @Value("http://10.8.157.38:80/img/")
-    String imageURL;
-
-
 
     @ApiOperation("展示的宝宝的信息,点击照片和成长记录的信息都可以取到,包括宝宝的成长记录")
     @RequestMapping("/showBaby")
@@ -61,10 +54,13 @@ public class BabyController {
     @RequestMapping("/upLoadImg")
     public String upLoadImage(UserImage userImage, HttpServletResponse response) throws IOException {
 
+        response.setHeader("Access-Control-Allow-Origin", "*");
+
         System.out.println("执行方法");
         System.out.println(userImage.getImgUrl());
-        response.setHeader("Access-Control-Allow-Origin", "*");
-        response.setHeader("Cache-Control","no-cache");
+        System.out.println(userImage.getImgDesc());
+        System.out.println(userImage.getUserId());
+        System.out.println("执行结束");
         int result2 = babyService.saveAndInsertImage(userImage);
         return result2 > 0 ? "success" : "fail";
     }
@@ -87,7 +83,5 @@ public class BabyController {
        //info大于0则返回插入成功，反之失败
        return info > 0 ? "success":"false";
     }
-
-
 
 }
