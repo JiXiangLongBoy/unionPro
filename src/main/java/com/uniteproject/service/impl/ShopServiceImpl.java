@@ -14,6 +14,7 @@ public class ShopServiceImpl implements ShopService {
         int result = shopMapper.addShop(goodsId,userId,goodsNum);
         if(result == 0){
             shopMapper.updateShop(goodsId,userId,goodsNum);
+            System.out.println("1");
         }
     }
 }
