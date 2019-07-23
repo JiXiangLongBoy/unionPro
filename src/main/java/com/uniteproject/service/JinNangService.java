@@ -20,5 +20,5 @@ public interface JinNangService {
 
     List<Period> getPeriod();
 
-    List<Foods> getfoodsByPeriodId();
+    List<Foods> getfoodsByPeriodId(int periodId);
 }

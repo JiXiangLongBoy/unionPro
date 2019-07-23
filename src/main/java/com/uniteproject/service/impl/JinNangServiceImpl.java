@@ -56,7 +56,7 @@ public class JinNangServiceImpl implements JinNangService {
     }
 
     @Override
-    public List<Foods> getfoodsByPeriodId() {
-        return null;
+    public List<Foods> getfoodsByPeriodId(int periodId) {
+        return jinNangMapper.getfoodsByPeriodId(periodId);
     }
 }

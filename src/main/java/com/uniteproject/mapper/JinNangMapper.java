@@ -22,4 +22,6 @@ public interface JinNangMapper {
     FoodsInfo getFoodsInfo(int foodsId);
 
     List<Period> getPeriod();
+
+    List<Foods> getfoodsByPeriodId(int periodId);
 }

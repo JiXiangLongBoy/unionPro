@@ -94,8 +94,8 @@ public class JinNangController {
 
     @ApiOperation("返回对应阶段孕期的食物，需要的参数是period接口返回的id值")
     @RequestMapping("/foodsbyperiodid")
-    public List<Foods> foodsByPeriodId() {
-        List<Foods> FoodsList = jinNangService.getfoodsByPeriodId();
+    public List<Foods> foodsByPeriodId(int periodId) {
+        List<Foods> FoodsList = jinNangService.getfoodsByPeriodId(periodId);
         System.out.println(FoodsList);
         return FoodsList;
     }
