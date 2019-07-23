@@ -11,6 +11,9 @@ public class ShopServiceImpl implements ShopService {
     ShopMapper shopMapper;
     @Override
     public void addShop(int goodsId, int userId, int goodsNum) {
-        shopMapper.addShop(goodsId,userId,goodsNum);
+        int result = shopMapper.addShop(goodsId,userId,goodsNum);
+        if(result == 0){
+            shopMapper.updateShop(goodsNum,goodsId,userId);
+        }
     }
 }

@@ -4,5 +4,8 @@ import org.apache.ibatis.annotations.Mapper;
 
 @Mapper
 public interface ShopMapper {
-    void addShop(int goodsId, int userId, int goodsNum);
+    int addShop(int goodsId, int userId, int goodsNum);
+
+
+    void updateShop(int goodsNum, int goodsId,int userId);
 }
