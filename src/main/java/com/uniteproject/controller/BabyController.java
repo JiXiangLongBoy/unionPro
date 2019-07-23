@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
@@ -58,10 +59,12 @@ public class BabyController {
 
     @ApiOperation("图片上传,image_file要和提交文件的input框中的name值保持一致，图片保存在云服务器上")
     @RequestMapping("/upLoadImg")
-    public String upLoadImage(UserImage userImage) throws IOException {
+    public String upLoadImage(UserImage userImage, HttpServletResponse response) throws IOException {
 
         System.out.println("执行方法");
         System.out.println(userImage.getImgUrl());
+        response.setHeader("Access-Control-Allow-Origin", "*");
+        response.setHeader("Cache-Control","no-cache");
         int result2 = babyService.saveAndInsertImage(userImage);
         return result2 > 0 ? "success" : "fail";
     }
