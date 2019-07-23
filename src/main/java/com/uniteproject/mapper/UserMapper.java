@@ -3,7 +3,6 @@ package com.uniteproject.mapper;
 
 
 import com.uniteproject.pojo.User;
-import com.uniteproject.pojo.UserImage;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
@@ -25,4 +24,5 @@ public interface UserMapper {
     int insertUser(User user);
 
 
+    String selectHeadImg(User user );
 }

@@ -17,12 +17,23 @@ public class LoginResult {
 
     @JsonInclude(JsonInclude.Include.NON_NULL)
     private String message;
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    @ApiModelProperty("用户头像")
+    private String headImg;
 
+    public String getHeadImg() {
+        return headImg;
+    }
 
-    public LoginResult(int status, int token, String message) {
+    public void setHeadImg(String headImg) {
+        this.headImg = headImg;
+    }
+
+    public LoginResult(int status, int token, String message, String headImg) {
         this.status = status;
         this.token = token;
         this.message = message;
+        this.headImg = headImg;
     }
 
     public int getStatus() {
