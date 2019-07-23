@@ -63,6 +63,8 @@ public class BabyController {
 
         System.out.println("执行方法");
         System.out.println(userImage.getImgUrl());
+        System.out.println(userImage.getImgDesc());
+        System.out.println(userImage.getUserId());
         response.setHeader("Access-Control-Allow-Origin", "*");
         response.setHeader("Cache-Control","no-cache");
         int result2 = babyService.saveAndInsertImage(userImage);
