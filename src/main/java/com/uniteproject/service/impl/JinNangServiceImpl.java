@@ -49,4 +49,14 @@ public class JinNangServiceImpl implements JinNangService {
     public FoodsInfo getFoodsInfo(int foodsId) {
         return jinNangMapper.getFoodsInfo(foodsId);
     }
+
+    @Override
+    public List<Period> getPeriod() {
+        return jinNangMapper.getPeriod();
+    }
+
+    @Override
+    public List<Foods> getfoodsByPeriodId() {
+        return null;
+    }
 }

@@ -11,7 +11,6 @@ import java.util.List;
 public interface BabyMapper {
 
 
-
     Baby selectBabyById(int babyId);
 
 
@@ -19,5 +18,10 @@ public interface BabyMapper {
 
     List<BabyDid> selectbabydid(int userId);
 
-    int insertUserImage(String s1, String s, int userId);
+
+    int insertBaby(int userId);
+
+    int saveAndInsertImage(UserImage userImage);
 }
+
+

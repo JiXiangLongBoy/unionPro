@@ -32,6 +32,17 @@ public class Goods {
     @ApiModelProperty(value = "购物车内商品的数量",example = "0")
     private int goodsNum;
 
+    @ApiModelProperty("用于展示商品状态的状态码")
+    private int status;
+
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
+    }
+
     public String getTypeName() {
         return typeName;
     }
@@ -116,6 +127,7 @@ public class Goods {
                 ", goodsP='" + goodsP + '\'' +
                 ", typeName='" + typeName + '\'' +
                 ", goodsNum=" + goodsNum +
+                ", status=" + status +
                 '}';
     }
 }
