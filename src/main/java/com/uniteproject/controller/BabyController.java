@@ -59,8 +59,7 @@ public class BabyController {
 
         System.out.println("执行方法");
 
-        response.setHeader("Access-Control-Allow-Origin", "*");
-        response.setHeader("Cache-Control","no-cache");
+        System.out.println(userImage);
 
         System.out.println("执行结束");
         int result2 = babyService.saveAndInsertImage(userImage);
