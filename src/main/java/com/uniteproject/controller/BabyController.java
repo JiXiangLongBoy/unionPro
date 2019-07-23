@@ -2,6 +2,7 @@ package com.uniteproject.controller;
 
 import com.uniteproject.pojo.Baby;
 import com.uniteproject.pojo.BabyDid;
+import com.uniteproject.pojo.User;
 import com.uniteproject.pojo.UserImage;
 import com.uniteproject.service.BabyService;
 import com.uniteproject.service.UserService;
@@ -57,13 +58,10 @@ public class BabyController {
         response.setHeader("Access-Control-Allow-Origin", "*");
 
         System.out.println("执行方法");
-        System.out.println(userImage.getImgUrl());
-        System.out.println(userImage.getImgDesc());
-        System.out.println(userImage.getUserId());
+
         response.setHeader("Access-Control-Allow-Origin", "*");
         response.setHeader("Cache-Control","no-cache");
-        System.out.println(userImage.getImgDesc());
-        System.out.println(userImage.getUserId());
+
         System.out.println("执行结束");
         int result2 = babyService.saveAndInsertImage(userImage);
         return result2 > 0 ? "success" : "fail";
@@ -87,7 +85,5 @@ public class BabyController {
        //info大于0则返回插入成功，反之失败
        return info > 0 ? "success":"false";
     }
-
-
 
 }
