@@ -13,7 +13,7 @@ public class ShopServiceImpl implements ShopService {
     public void addShop(int goodsId, int userId, int goodsNum) {
         int result = shopMapper.addShop(goodsId,userId,goodsNum);
         if(result == 0){
-            shopMapper.updateShop(goodsNum,goodsId,userId);
+            shopMapper.updateShop(goodsId,userId,goodsNum);
         }
     }
 }

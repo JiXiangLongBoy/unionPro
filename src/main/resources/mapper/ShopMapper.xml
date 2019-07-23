@@ -5,7 +5,7 @@
 <mapper namespace="com.uniteproject.mapper.ShopMapper">
 
     <insert id="addShop" parameterType="int">
-        insert ignoer into shoptro (goodsId,userId,goodsNum) value (#{goodsId},#{userId},#{goodsNum})
+        insert ignore into shoptro (goodsId,userId,goodsNum) values (#{goodsId},#{userId},#{goodsNum})
     </insert>
     <update id="updateShop" parameterType="int" >
         update shoptro set goodsNum = goodsNum + #{goodsNum} where goodsId =#{goodsId} and userId = #{userId}

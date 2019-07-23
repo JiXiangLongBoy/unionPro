@@ -7,5 +7,5 @@ public interface ShopMapper {
     int addShop(int goodsId, int userId, int goodsNum);
 
 
-    void updateShop(int goodsNum, int goodsId,int userId);
+    void updateShop(int goodsId, int userId, int goodsNum);
 }
