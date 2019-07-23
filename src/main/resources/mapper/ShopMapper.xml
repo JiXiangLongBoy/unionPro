@@ -10,4 +10,10 @@
     <update id="updateShop" parameterType="int" >
         update shoptro set goodsNum = goodsNum + #{goodsNum} where goodsId =#{goodsId} and userId = #{userId}
     </update>
+    <select id="selectGoodsNum" parameterType="int" resultType="int">
+        select goodsNum from shoptro where goodsId =#{goodsId} and userId = #{userId}
+    </select>
+    <select id="deleteShop" parameterType="int" resultType="int">
+        delete from shoptro where goodsId =#{goodsId} and userId = #{userId}
+    </select>
 </mapper>

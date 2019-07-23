@@ -8,4 +8,8 @@ public interface ShopMapper {
 
 
     void updateShop(int goodsId, int userId, int goodsNum);
+
+    int selectGoodsNum(int goodsId, int userId);
+
+    void deleteShop(int goodsId, int userId);
 }
