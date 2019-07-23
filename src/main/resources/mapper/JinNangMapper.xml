@@ -44,12 +44,6 @@
         select * from cyclopedia
     </select>
 
-
-    <select id="getRecipe" resultType="recipe">
-        select * from recipe
-    </select>
-
-
     <select id="getFoodsTypeList" resultType="foodsType">
         select * from foodsType
     </select>
@@ -62,6 +56,11 @@
             </if>
         </where>
     </select>
+
+    <select id="getPeriod" resultType="Period">
+        select * from period
+    </select>
+
 
     <select id="queryFoodsByTypeId" parameterType="int" resultType="foods">
    select f.*,p.periodName from foods f,period p where f.foodsTypeId=#{foodsTypeId} and f.periodId=p.id

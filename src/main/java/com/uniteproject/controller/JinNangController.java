@@ -40,11 +40,11 @@ public class JinNangController {
         return cyclopediasList;
     }
 
-    @ApiOperation("返回食谱主页需要展示菜品数据，foodsName是菜的名字，foodsDesc是菜品的描述 ")
+    @ApiOperation("返回食谱主页需要展示食物数据，foodsName是食物的名字，foodsDesc是菜品的描述 ")
     @RequestMapping("/recipe")
-    public List<Recipe> getRecipe() {
+    public List<Foods> getRecipe() {
 
-        List<Recipe> foodsList = jinNangService.getRecipe();
+        List<Foods> foodsList = jinNangService.getFoodsByName("");
 
         return foodsList;
     }
@@ -82,4 +82,22 @@ public class JinNangController {
         System.out.println(foodsInfo);
         return foodsInfo;
     }
+
+
+    @ApiOperation("返回孕期的阶段，及阶段对应的id值，不需要参数")
+    @RequestMapping("/period")
+    public List<Period> period() {
+        List<Period> periodList = jinNangService.getPeriod();
+        System.out.println(periodList);
+        return periodList;
+    }
+
+    @ApiOperation("返回对应阶段孕期的食物，需要的参数是period接口返回的id值")
+    @RequestMapping("/foodsbyperiodid")
+    public List<Foods> foodsByPeriodId() {
+        List<Foods> FoodsList = jinNangService.getfoodsByPeriodId();
+        System.out.println(FoodsList);
+        return FoodsList;
+    }
+
 }

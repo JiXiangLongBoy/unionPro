@@ -20,4 +20,12 @@ public interface MyMapper {
     List<Goods> getShopTro(int userId);
 
     List<User> getMyMainInfo(int userId);
+
+    int getIntegral(int userId);
+
+    int getSign(int userId);
+
+    int setSign(int userId);
+
+    void updateSign();
 }

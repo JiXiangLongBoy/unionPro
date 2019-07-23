@@ -18,4 +18,10 @@ public interface MyService {
     List<Goods> getShopTro(int userId);
 
     List<User> getMyMainInfo(int userId);
+
+    int getIntegral(int userId);
+
+    int getSign(int userId);
+
+    void updateSign();
 }

@@ -10,8 +10,6 @@ public interface JinNangService {
 
     List<Cyclopedia> getEssay();
 
-    List<Recipe> getRecipe();
-
     List<FoodsType> getFoodsTypeList();
 
     List<Foods> getFoodsByName(String foodsName);
@@ -19,4 +17,8 @@ public interface JinNangService {
     List<Foods> queryFoodsByTypeId(int foodsTypeId);
 
     FoodsInfo getFoodsInfo(int foodsId);
+
+    List<Period> getPeriod();
+
+    List<Foods> getfoodsByPeriodId();
 }

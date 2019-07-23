@@ -26,4 +26,22 @@
         select * from user where id=#{userId}
     </select>
 
+
+    <select id="getIntegral" resultType="int" parameterType="int">
+        select userIntegral from user where id=#{userId}
+    </select>
+
+    <select id="getSign" resultType="int" parameterType="int">
+        select sign from user where id=#{userId}
+    </select>
+
+    <update id="setSign" parameterType="int">
+        UPDATE user set sign = 1 ,userIntegral = userIntegral+2 where id=#{userId}
+    </update>
+
+    <update id="updateSign">
+        UPDATE user set sign = 0
+    </update>
+
+
 </mapper>
