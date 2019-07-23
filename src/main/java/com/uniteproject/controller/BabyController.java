@@ -58,7 +58,7 @@ public class BabyController {
         response.setHeader("Access-Control-Allow-Origin", "*");
 
         System.out.println("执行方法");
-
+        System.out.println(userImage);
         response.setHeader("Access-Control-Allow-Origin", "*");
         response.setHeader("Cache-Control","no-cache");
 

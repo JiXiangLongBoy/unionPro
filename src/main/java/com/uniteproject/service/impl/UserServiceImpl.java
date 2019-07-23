@@ -21,12 +21,15 @@ public class UserServiceImpl implements UserService {
     public LoginResult isLogin(User user) {
 
         int count = userMapper.login(user);
-
+        String headImg= "";
         if (count == 1) {
             int id = userMapper.isLogin(user);
-            return new LoginResult(1,id,"用户名验证登录成功");
+            int userId = user.getId();
+             headImg = userMapper.selectHeadImg(user);
+            System.out.println(headImg);
+            return new LoginResult(1,id,"用户名验证登录成功",headImg);
         } else {
-            return new LoginResult(0,0,"用户名或密码错误，登陆失败");
+            return new LoginResult(0,0,"用户名或密码错误，登陆失败",headImg);
         }
     }
 
