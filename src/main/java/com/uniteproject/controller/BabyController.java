@@ -58,6 +58,9 @@ public class BabyController {
 
         System.out.println("执行方法");
         System.out.println(userImage.getImgUrl());
+
+        System.out.println(userImage);
+
         System.out.println("执行结束");
         int result2 = babyService.saveAndInsertImage(userImage);
         return result2 > 0 ? "success" : "fail";
