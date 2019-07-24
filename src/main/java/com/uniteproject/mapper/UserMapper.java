@@ -24,5 +24,5 @@ public interface UserMapper {
     int insertUser(User user);
 
 
-    String selectHeadImg(User user );
+    String selectHeadImg(int id );
 }

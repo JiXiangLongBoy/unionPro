@@ -24,8 +24,7 @@ public class UserServiceImpl implements UserService {
         String headImg= "";
         if (count == 1) {
             int id = userMapper.isLogin(user);
-            int userId = user.getId();
-             headImg = userMapper.selectHeadImg(user);
+             headImg = userMapper.selectHeadImg(id);
             System.out.println(headImg);
             return new LoginResult(1,id,"用户名验证登录成功",headImg);
         } else {

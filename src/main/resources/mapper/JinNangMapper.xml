@@ -48,13 +48,6 @@
         select * from foodsType
     </select>
 
-    <select id="getfoodsByPeriodId" resultType="foodsType">
-        select f.* from foods f left join
-        /*到这里了 需要连接三张表查询， 一个食物可以对应多个孕期，一个孕期对应多个食物*/
-    </select>
-
-
-
 
     <select id="getFoodsByName" resultType="foods" parameterType="string">
         select * from foods
@@ -76,6 +69,11 @@
 
     <select id="getFoodsInfo" parameterType="int" resultMap="foodsInfoMap">
         select info.*,info.id as iId,issue.*,issue.id as isId from foodsinfo info left join foodsinfoissue issue on info.foodsId=#{foodsId} and issue.foodsInfoId=info.id
+    </select>
+
+
+    <select id="getfoodsByPeriodId" parameterType="int" resultType="foods">
+        select * from foods f,foods_period fp,period p where f.foodsId=fp.foodsId and fp.periodId=p.id and p.id=#{periodId};
     </select>
 
 

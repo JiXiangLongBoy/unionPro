@@ -29,6 +29,11 @@
     <!-- <select id="getGoodsById" parameterType="int" resultType="Goods">
          select * from goods where id = #{id}
      </select>-->
+
+    <select id="selectHeadImg" parameterType="int" resultType="string" >
+        select headImg from user where id=#{id}
+    </select>
+
     <select id="getHeadCount" resultType="int" >
         select count(1) from user
     </select>

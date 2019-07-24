@@ -29,7 +29,10 @@ public class UserController {
 
     @ApiOperation("验证登录账号密码，用户名正确返回1，并返回大于0的token值，否则返回0，此接口只需要username和password两个参数,其他参数用于注册使用")
     @RequestMapping("/login")
-    public LoginResult testDemo(User user) {
+    public LoginResult testDemo(String username,String password) {
+        User user = new User();
+        user.setUsername(username);
+        user.setPassword(password);
         LoginResult loginResult= userService.isLogin(user);
             return loginResult;
     }
