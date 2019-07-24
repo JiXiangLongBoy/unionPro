@@ -5,7 +5,6 @@ import com.uniteproject.pojo.BabyDid;
 import com.uniteproject.pojo.UserImage;
 import com.uniteproject.service.BabyService;
 import com.uniteproject.service.UserService;
-import com.uniteproject.utils.qiNiuUploadUtils;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -13,7 +12,6 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -54,15 +52,12 @@ public class BabyController {
 
     @ApiOperation("图片上传,image_file要和提交文件的input框中的name值保持一致，图片保存在云服务器上")
     @RequestMapping("/upLoadImg")
-    public String upLoadImage(UserImage userImage, MultipartFile file, HttpServletResponse response){
+    public String upLoadImage(UserImage userImage, HttpServletResponse response) throws IOException {
 
         response.setHeader("Access-Control-Allow-Origin", "*");
-        System.out.println("执行方法");
-        qiNiuUploadUtils qiNiuUploadUtils = new qiNiuUploadUtils();
-        String upload =qiNiuUploadUtils.upload(file);//获得用户上换头像
-        System.out.println("lianjie:"+upload);
 
-        userImage.setImgUrl(upload);
+        System.out.println("执行方法");
+
         int result2 = babyService.saveAndInsertImage(userImage);
         return result2 > 0 ? "success" : "fail";
     }
