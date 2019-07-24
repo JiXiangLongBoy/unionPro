@@ -14,7 +14,7 @@
     </select>
 
     <select id="selectbabydid" parameterType="int" resultType="map">
-        select c.didTitle,c.didDesc,c.didImg from babydid c ,user u where c.userId=u.id and c.userId=${userId}
+        select * from babydid c ,user u where c.userId=u.id and c.userId=${userId}
     </select>
 
     <insert id="saveAndInsertImage" parameterType="userImage">
