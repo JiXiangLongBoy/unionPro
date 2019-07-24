@@ -21,8 +21,7 @@ public interface BabyMapper {
 
     int insertBaby(int userId);
 
-
-    int saveAndInsertImage(int userId, String imgUrl, String imgDesc);
+    int saveAndInsertImage(UserImage userImage);
 }
 
 

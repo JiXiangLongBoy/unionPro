@@ -17,8 +17,8 @@
         select c.didTitle,c.didDesc,c.didImg from babydid c ,user u where c.userId=u.id and c.userId=${userId}
     </select>
 
-    <insert id="saveAndInsertImage" parameterType="int">
-        insert into userimg(imgId,userId,imgUrl,imgDesc) value (null,#{userId},#{imgUrl},#{imgDesc})
+    <insert id="saveAndInsertImage" parameterType="userImage">
+        insert into userimg(imgId,userId,imgUrl,imgDesc) value (#{imgId},#{userId},#{imgUrl},#{imgDesc})
     </insert>
 
     <insert id="insertBaby" parameterType="int" >

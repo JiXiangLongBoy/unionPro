@@ -49,9 +49,11 @@ public class BabyServiceImpl implements BabyService {
     }
 
     @Override
-    public int saveAndInsertImage(int userId, String imgUrl, String imgDesc) {
-        return babyMapper.saveAndInsertImage(userId,imgUrl,imgDesc);
+    public int saveAndInsertImage(UserImage userImage) {
+        return babyMapper.saveAndInsertImage(userImage);
     }
+
+
 
 
 }
