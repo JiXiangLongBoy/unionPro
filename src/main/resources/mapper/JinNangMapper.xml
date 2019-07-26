@@ -45,7 +45,7 @@
     </select>
 
     <select id="getFoodsTypeList" resultType="foodsType">
-        select * from foodsType
+        select * from foodstype
     </select>
 
 

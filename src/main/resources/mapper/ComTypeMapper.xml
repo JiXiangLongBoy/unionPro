@@ -4,6 +4,6 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.uniteproject.mapper.ComTypeMapper">
     <select id="getComTypeList" parameterType="int" resultType="ComType">
-        select * from comType
+        select * from comtype
     </select>
 </mapper>
